@@ -1,0 +1,19 @@
+name: Hibersap
+title: Hibersap home
+org: akquinet tech@spree GmbH
+base_url: ''
+
+interpolate: false
+haml:
+  :ugly: true
+
+asciidoctor:
+  :safe: safe
+  :attributes:
+    sitename: WriteAdapt
+    base_url: ''
+    ctx_path: ''
+    idprefix: ''
+    idseparator: '-'
+    sectanchors: ''
+    icons: font
