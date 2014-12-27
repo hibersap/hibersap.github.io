@@ -65,7 +65,7 @@ $default-float: left;
 
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-family: "Muli", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -172,7 +172,7 @@ $default-float: left;
 
 // Control header font styles
 
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: "Yanone Kaffeesatz", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -183,12 +183,12 @@ $default-float: left;
 
 // Control header font sizes
 
-// $h1-font-size: em-calc(44);
-// $h2-font-size: em-calc(37);
-// $h3-font-size: em-calc(27);
-// $h4-font-size: em-calc(23);
-// $h5-font-size: em-calc(18);
-// $h6-font-size: 1em;
+$h1-font-size: em-calc(40);
+$h2-font-size: em-calc(33);
+$h3-font-size: em-calc(24);
+$h4-font-size: em-calc(21);
+$h5-font-size: em-calc(16);
+$h6-font-size: 1em;
 
 // Control how subheaders are styled.
 
@@ -1255,13 +1255,13 @@ $default-float: left;
 
 // Background color for the top bar
 
-// $topbar-bg-color: #111;
+$topbar-bg-color: #136e9e;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
 
 // $topbar-height: 45px;
-// $topbar-margin-bottom: 0;
+$topbar-margin-bottom: 0;
 
 // Control Input height for top bar
 
@@ -1323,3 +1323,4 @@ $default-float: left;
 
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
+

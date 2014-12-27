@@ -10,10 +10,11 @@ haml:
 asciidoctor:
   :safe: safe
   :attributes:
-    sitename: WriteAdapt
+    sitename: Hibersap
     base_url: ''
     ctx_path: ''
     idprefix: ''
     idseparator: '-'
     sectanchors: ''
     icons: font
+

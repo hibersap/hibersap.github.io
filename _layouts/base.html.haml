@@ -11,12 +11,20 @@
   %link{:rel=>'stylesheet', :href=>"#{site.base_url}/stylesheets/app.css"}
   %script(src="#{site.base_url}/javascripts/vendor/custom.modernizr.js")
   %link{:rel=>'author', :type=>'text/plain', :href=>"#{site.base_url}/humans.txt"}
+  <!-- Fonts -->
+  %link{:rel=>'stylesheet', :type=>'text/css', :href=>"http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz"}
+  <!-- highlight.js -->
+  %link{:rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/default.min.css"}
+  %script(src="#{site.base_url}/javascripts/vendor/highlight.min.js")
+  <!-- font-awesome -->
+  %link{:rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/font-awesome.min.css"}
 %body.antialiased
   %nav.top-bar
     %ul.title-area
       %li.name
         %h1
-          %a(href="#{site.base_url}/")=site.name
+          %a(href="#{site.base_url}/")
+            %img{:src=>'/img/HibersapLogo.png', :alt=>'Hibersap'}
       %li.toggle-topbar.menu-icon
         %a{:href=>'#'}<
           %span
@@ -27,14 +35,18 @@
             %a{:href=>"#{site.base_url}/"} Home
         %li.divider
           %li
-            %a{:href=>"#{site.base_url}/guides"} Guides
+            %a{:href=>"#{site.base_url}/getstarted"} Get Started
+        %li.divider
+          %li
+            %a{:href=>"#{site.base_url}/documentation"} Documentation
+
   .row
     .large-12.columns
       ~ content
   %footer.row(style='max-width: 100%')
     %hr
     .large-6.columns
-      %p(style='margin-bottom: .75em')
+      %p(style='margin-bottom: .5em; font-size: .75em')
         &copy; #{Date.today.year} #{site.org}
         %br
         Built on Foundation. Baked by Awestruct.
@@ -55,4 +67,6 @@
     $(document).foundation()
   - if site.google_analytics
     =google_analytics_async
+  %script
+    hljs.initHighlightingOnLoad();
 </html>
