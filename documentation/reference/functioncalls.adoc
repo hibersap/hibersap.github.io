@@ -1,0 +1,54 @@
+
+=== Calling Function Modules
+
+
+==== Building a SessionManager
+
+Chapter link:#configuration[Configuration] explains in detail how to configure Hibersap.
+The following code snippet assumes that there is the `/META-INF/hibersap.xml` configuration file defining a session manager named "A12" in the application's classpath and shows how to build a `SessionManager` instance:
+
+[source,java]
+----
+AnnotationConfiguration configuration= new AnnotationConfiguration( "A12" );
+SessionManager sessionManager = configuration.buildSessionManager();
+----
+
+The `SessionManager` should be created only once in an application's lifetime since its creation is
+It depends on the kind of application how to store the `SessionManager` instances. In a web application they may be created and closed in a `ServletContextListener` when starting and stopping the application, putting them into the servlet context.
+In an EJB application this may be done using a Singleton EJB and its life-cycle methods and binding the individual SessionManager instances to JNDI.
+In a stand-alone application the SessionManager might be simply passed around or managed by some dependency injection framework.
+
+
+==== Calling a function in SAP
+
+Calling a remote function module in SAP is as easy as opening a new `Session` with the `SessionManager`, creating an instance of the BAPI class with the required parameters and passing it to the `Session.execute()` method.
+
+[source,java]
+----
+Session session = sessionManager.openSession();
+try {
+    FlightListBapi flightList = new FlightListBapi( "DE", "Frankfurt",
+                                                    "DE", "Berlin",
+                                                    null, false, 10 );
+    session.execute( flightList );
+    showResult( flightList );
+}
+finally
+{
+    session.close();
+}
+----
+
+When calling `Session.execute()`, Hibersap populates the given Bapi object with the SAP function's return parameters as defined in the parameter mappings.
+
+A physical connection to the SAP system is created during the first call of `Session.execute()`.
+It is crucial to close the Session when it is no longer needed.
+If sessions are not closed, the connection pool (as managed by JCo or the resource adapter) may get exhausted.
+Therefore it is strongly recommended to close the `Session` in a `finally` block like in the above example.
+This makes sure the session gets closed even if an exception is thrown during execution of the `try` block.
+
+Keep in mind that, if the application keeps sessions open for a long time, connections may also be shut down by the SAP system after some timeout period or there is some possibility that they may get broken due to network problems.
+Thus, a session should have a short lifetime (just like a database session) and should only be used for a single unit of work.
+
+Hibersap sessions are inexpensive to create, the Java Connector's or Resource Adapter's connection pool takes care of an efficient connection management (if properly configured), and Hibersap will not akquire a SAP connection before it is needed.
+

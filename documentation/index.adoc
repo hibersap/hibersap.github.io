@@ -1,13 +1,15 @@
 = Hibersap Documentation
 :icons: font
-// settings:
+:toc: right
 :page-layout: base
 :idprefix:
 ifdef::env-github[:idprefix: user-content-]
 :idseparator: -
-:source-language: ruby
+:source-language: java
 :language: {source-language}
 
-test test.
 
-NOTE: hjsdjshjshj shdjhdsjsdh
+== Manuals, Guides
+
+link:reference/[Hibersap Reference Manual]::
+  The A to Z guide to Hibersap.

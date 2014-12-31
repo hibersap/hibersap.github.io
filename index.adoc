@@ -1,5 +1,4 @@
 = Hibersap
-// settings:
 :page-layout: base
 :idprefix:
 ifdef::env-github[:idprefix: user-content-]
@@ -7,19 +6,19 @@ ifdef::env-github[:idprefix: user-content-]
 :source-language: java
 :language: {source-language}
 
-= The fun way to connect to SAP
+== The fun way to connect to SAP
 Hibersap helps developers of Java applications to call business logic and access data in SAP backends.
 
-== How does Hibersap work?
+=== How does Hibersap work?
 Hibersap defines a set of Java annotations to map SAP function modules to Java classes as well as a small and
 clean API to execute these function modules and handle transaction and security aspects.
 
-== Why is it fun?
+=== Why is it fun?
 Hibersap's programming model is quite similar to those of modern O/R mappers, significantly speeding up
 the development of SAP interfaces. This makes it much easier to write the integration code.
 You don't have to write tons of boilerplate code which makes your applications much cleaner while keeping up maintainability.
 
-== JCA or JCo?
+=== JCA or JCo?
 Under the hood, Hibersap either uses the SAP Java Connector (JCo) or a JCA compatible resource adapter
 to communicate with the SAP backend. While retaining the benefits of JCo and JCA like transactions,
 security, connection pooling, etc., you can focus on writing your business logic. To switch between JCo and JCA

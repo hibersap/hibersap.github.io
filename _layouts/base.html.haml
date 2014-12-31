@@ -7,7 +7,6 @@
   %meta(charset='utf-8')
   %meta(name='viewport' content='width=device-width, initial-scale=1.0')
   %title=site.title
-  %link{:rel=>'stylesheet', :href=>"#{site.base_url}/stylesheets/normalize.css"}
   %link{:rel=>'stylesheet', :href=>"#{site.base_url}/stylesheets/app.css"}
   %script(src="#{site.base_url}/javascripts/vendor/custom.modernizr.js")
   %link{:rel=>'author', :type=>'text/plain', :href=>"#{site.base_url}/humans.txt"}
@@ -38,7 +37,10 @@
             %a{:href=>"#{site.base_url}/getstarted"} Get Started
         %li.divider
           %li
-            %a{:href=>"#{site.base_url}/documentation"} Documentation
+            %a{:href=>"#{site.base_url}/documentation"} Get Help
+        %li.divider
+          %li
+            %a{:href=>"#{site.base_url}/contribute"} Contribute
 
   .row
     .large-12.columns

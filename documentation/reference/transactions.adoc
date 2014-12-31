@@ -1,0 +1,53 @@
+
+SAP ERP allows external callers of its function modules to control logical units of work (i.e. transactions).
+An application may call a number of function modules and commit or rollback all changes made during the function calls.
+This is done by calling special function modules named `BAPI_TRANSACTION_COMMIT` and `BAPI_TRANSACTION_ROLLBACK`.
+
+NOTE:
+Please note that not all Remote Function Modules and even not all standard BAPIs in SAP R/3 support this feature.
+Special care has to be taken in the ABAP code which should not call a COMMIT WORK itself. See SAP note 0131838, "Collective Note for BAPIs with the Commit Work Command" for a list of BAPIs that are not transaction enabled.
+
+Using Hibersap, it is very easy to start and end transactions, you do not have to map and call these function modules yourself.
+Depending on the chosen interfacing technology, you can either handle your transactions manually (JCo and JCA) or use Container Managed Transactions (JCA only).
+
+==== Manual transaction handling
+
+The Hibersap Session has a method `beginTransaction()` which must be called when starting the transaction.
+`beginTransaction()` returns a `Transaction` object on which you can later call the methods `commit()` or `rollback()` to tell SAP to commit or rollback all changes made during the transaction.
+
+[source,java]
+----
+Session session = sessionManager.openSession();
+Transaction transaction = null;
+try
+{
+    transaction = session.beginTransaction();
+    session.execute( bapiObject1 );
+    ...
+    session.execute( bapiObjectN );
+    transaction.commit();
+}
+catch (Exception e)
+{
+    if (transaction != null) {
+        transaction.rollback();
+    }
+}
+finally
+{
+    session.close();
+}
+----
+
+In Java EE applications that make use of EJBs and Bean Managed Transactions (BMT) it is also necessary to explicitly start, commit and rollback transactions like in the code example.
+
+==== Automatic transaction handling
+
+Applications running in an application server and using EJBs and a Java EE compatible Resource Adapter can profit from the application server's capability to automatically handle transactions.
+This is called Container Managed Transactions (CMT).
+
+In case of using CMT, the application code does not have to take care of starting, committing and rolling back transactions.
+
+See section link:#java-ee-integration[Java EE Integration] for a detailed discussion on Container Managed Transactions.
+
+

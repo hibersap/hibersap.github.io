@@ -183,12 +183,12 @@ $header-font-family: "Yanone Kaffeesatz", "Helvetica", Helvetica, Arial, sans-se
 
 // Control header font sizes
 
-$h1-font-size: em-calc(40);
-$h2-font-size: em-calc(33);
-$h3-font-size: em-calc(24);
-$h4-font-size: em-calc(21);
-$h5-font-size: em-calc(16);
-$h6-font-size: 1em;
+//$h1-font-size: em-calc(40);
+//$h2-font-size: em-calc(33);
+//$h3-font-size: em-calc(24);
+//$h4-font-size: em-calc(21);
+//$h5-font-size: em-calc(16);
+//$h6-font-size: 1em;
 
 // Control how subheaders are styled.
 
@@ -1260,8 +1260,8 @@ $topbar-bg-color: #136e9e;
 
 // Height and margin
 
-// $topbar-height: 45px;
-$topbar-margin-bottom: 0;
+$topbar-height: 45px;
+// $topbar-margin-bottom: 0;
 
 // Control Input height for top bar
 
