@@ -1,8 +1,5 @@
 
-=== Calling Function Modules
-
-
-==== Building a SessionManager
+=== Building a SessionManager
 
 Chapter link:#configuration[Configuration] explains in detail how to configure Hibersap.
 The following code snippet assumes that there is the `/META-INF/hibersap.xml` configuration file defining a session manager named "A12" in the application's classpath and shows how to build a `SessionManager` instance:
@@ -19,7 +16,7 @@ In an EJB application this may be done using a Singleton EJB and its life-cycle 
 In a stand-alone application the SessionManager might be simply passed around or managed by some dependency injection framework.
 
 
-==== Calling a function in SAP
+=== Calling a function in SAP
 
 Calling a remote function module in SAP is as easy as opening a new `Session` with the `SessionManager`, creating an instance of the BAPI class with the required parameters and passing it to the `Session.execute()` method.
 
@@ -52,3 +49,57 @@ Thus, a session should have a short lifetime (just like a database session) and 
 
 Hibersap sessions are inexpensive to create, the Java Connector's or Resource Adapter's connection pool takes care of an efficient connection management (if properly configured), and Hibersap will not akquire a SAP connection before it is needed.
 
+
+=== Interceptors
+
+There are two kind of interceptors that intercept calls to SAP function on different levels.
+Both interceptor types make it possible for applications to apply additional logic which is related to cross-cutting concerns like e.g. logging.
+Both interceptors are registered with a session manager in the Hibersap configuration and apply to all function calls using this session manager.
+
+
+==== Bapi Interceptors
+
+Bapi Interceptors implement the `org.hibersap.interceptor.BapiInterceptor` interface and are called before and after a function call has been executed.
+The interface defines the methods `beforeExecution( java.lang.Object )` and `afterExecution( java.lang.Object )`. As an argument, the Bapi object is passed to these methods.
+
+E.g., Hibersap uses a Bapi Interceptor internally to apply Bean Validation (see class `org.hibersap.validation.BeanValidationInterceptor`).
+Applications may of course add their own Bapi Interceptors.
+
+
+==== Execution Interceptors
+
+Execution interceptors implement the `org.hibersap.interceptor.ExecutionInterceptor` interface and are also called before and after a function call has been executed.
+The interface defines the methods `beforeExecution( org.hibersap.mapping.model.BapiMapping, java.util.Map<String, Object> )` and `afterExecution( org.hibersap.mapping.model.BapiMapping, java.util.Map<String, Object> )`.
+In comparison to Bapi Interceptors, they are working on a lower level of the execution stack and provide information about the mapping of the Bapi class currently being executed as well as Hibersap's internal representation of the parameters passed to and received from SAP.
+
+The parameters are provided to the interceptor methods in terms of a `java.util.Map` with keys of type `java.util.String` specifying the parameter names and values of different types specifying the parameter values.
+The map's root elements have the keys "IMPORT", "EXPORT" and "TABLE" with a `java.util.Map` each containing the lists of the function's import, export and table parameters respectively.
+All other keys are the names of the SAP function's parameters.
+For scalar parameters values are of a simple Java type like numbers, dates or strings. For complex parameters values are of type `java.util.Map` with the type elements as key/value pairs. For table parameters the values are of type `java.util.List` with maps for each row.
+
+An example structure:
+
+[source,text]
+----
+java.util.Map functionMap
+  "IMPORT": java.util.Map
+    <name import param simple>: <value import param1 simple>
+    <name import param complex>: java.util.Map
+      <name structure param 1>: <value structure param1>
+      <name structure param 2>: <value structure param2>
+  "TABLE": java.util.Map
+    <name table param>: java.util.List
+      <list element 1>
+        java.util.Map
+          <name structure param1 row 1>: <value structure param1 row 1>
+          <name structure param2 row 1>: <value structure param2 row 1>
+      <list element 2>
+        java.util.Map
+          <name structure param1 row 2>: <value structure param1 row 2>
+          <name structure param2 row 2>: <value structure param2 row 2>
+  ...
+----
+
+As an example, Hibersap internally uses an Execution Interceptor to detect errors when using the @ThrowExceptionOnError annotation (see class `org.hibersap.interceptor.impl.SapErrorInterceptor`). This way, the function's parameter containing the error information does not need to be mapped to Java fields in the Bapi class to allow Hibersap to detect errors.
+
+For use in applications Bapi Interceptors may suffice in most cases, are much easier to implement and should therefore be favored if sufficient for the use case. Execution Interceptors should only be used when the additional flexibility is needed.

@@ -74,7 +74,7 @@ context::
 jca-connection-factory::
     The JNDI name of the JCA Connection Factory.
     This parameter has to be specified if the application uses a JCA compatible resource adapter.
-    The resource adapter has to be deployed on the application server independently from Hibersap and the application, defining a JNDI name for each configured ConnectionFactory.
+    The resource adapter has to be deployed on the application server independently from Hibersap and the application, defining a JNDI name for each configured `ConnectionFactory`.
     Hibersap will use this name to look up the resource adapter's `ConnectionFactory`.
 
 jca-connectionspec-factory::
@@ -85,25 +85,25 @@ jca-connectionspec-factory::
 
 properties::
     Zero or more additional properties. These depend on the interfacing technology in use. For the SAP JCo, all the JCo-specific
-    properties must be defined here. See javadoc for the class com.sap.conn.jco.ext.DestinationDataProvider of the JCo distribution
+    properties must be defined here. See javadoc for the class `com.sap.conn.jco.ext.DestinationDataProvider` in the JCo distribution
     to get a complete list of possible properties. For use with JCA, this element is not needed.
 
 annotated-classes::
-    All annotated BAPI classes which are used with the SessionManager must be listed here.
+    All annotated BAPI classes which are used with the `SessionManager` must be listed here.
 
 validation-mode::
-    Specifies if Bean Validation (JSR-303) shall be used. Possible values are NONE to deactivate Bean Validation,
-    AUTO to activate Bean Validation only if a provider is available on the classpath, and CALLBACK to make sure
-    Bean Validation is used. With CALLBACK, Hibersap will throw an exception if no Bean Validation provider is
+    Specifies if Bean Validation (JSR-303) shall be used. Possible values are `NONE` to deactivate Bean Validation,
+    `AUTO` to activate Bean Validation only if a provider is available on the classpath, and `CALLBACK` to make sure
+    Bean Validation is used. With `CALLBACK`, Hibersap will throw an exception if no Bean Validation provider is
     present at runtime.
 
 bapi-interceptor-classes::
-    A list of the interceptor classes. These must implement org.hibersap.interceptor.BapiInterceptor and are called before and after a
+    A list of the interceptor classes. These must implement `org.hibersap.interceptor.BapiInterceptor` and are called before and after a
     SAP function module gets executed. Each interceptor must be defined with the fully qualified class name in a seperate
     bapi-interceptor-class element.
 
 execution-interceptor-classes::
-    A list of the interceptor classes. These must implement org.hibersap.interceptor.ExecutionInterceptor and are called before and after a
+    A list of the interceptor classes. These must implement `org.hibersap.interceptor.ExecutionInterceptor` and are called before and after a
     SAP function module gets executed. Each interceptor must be defined with the fully qualified class name in a seperate
     execution-interceptor-class element.
 
