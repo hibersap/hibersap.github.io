@@ -1,0 +1,9 @@
+---
+layout: base
+---
+#content
+  h2 =page.partial
+  - page.posts.each do |post|
+    - page.stem = '' if post.stem
+    =partial('entry.html.slim', :post => post, :listing => true, :xxx => 'news')
+  =partial('pagination.html.slim', :paginator => page.posts)
