@@ -189,8 +189,7 @@ import java.util.List;
 import org.hibersap.*;
 
 @Bapi("BAPI_SFLIGHT_GETLIST")
-public class FlightListBapi
-{
+public class FlightListBapi {
   // ...
 }
 ----
@@ -260,14 +259,14 @@ initializing the corresponding fields:
 
 [source,java]
 ----
-public FlightListBapi( String fromCountryKey,
-                       String fromCity,
-                       String toCountryKey,
-                       String toCity,
-                       String airlineCarrier,
-                       boolean afternoon,
-                       int maxRead )
-{
+public FlightListBapi(String fromCountryKey,
+                        String fromCity,
+                        String toCountryKey,
+                        String airlineCarrier,
+                        String toCity,
+                        boolean afternoon,
+                        int maxRead) {
+
     this.fromCountryKey = fromCountryKey;
     this.fromCity = fromCity;
     this.toCountryKey = toCountryKey;
@@ -284,8 +283,7 @@ Additional fields and methods may of course be added.
 
 [source,java]
 ----
-public boolean getAfternoon()
-{
+public boolean getAfternoon() {
     return this.afternoon;
 }
 
@@ -317,8 +315,8 @@ package org.hibersap.bapi;
 import org.hibersap.annotations.*;
 
 @BapiStructure
-public class BapiRet2
-{
+public class BapiRet2 {
+
     @Parameter("TYPE")
     @Convert(converter = CharConverter.class)
     private char type;
@@ -332,25 +330,13 @@ public class BapiRet2
     @Parameter("MESSAGE")
     private String message;
 
-    public char getType()
-    {
-        return this.type;
-    }
+    public char getType() { return this.type; }
 
-    public String getId()
-    {
-        return this.id;
-    }
+    public String getId() { return this.id; }
 
-    public String getNumber()
-    {
-        return this.number;
-    }
+    public String getNumber() { return this.number; }
 
-    public String getMessage()
-    {
-        return this.message;
-    }
+    public String getMessage() { return this.message; }
 }
 ----
 
@@ -372,8 +358,8 @@ import java.util.Date;
 import org.hibersap.*;
 
 @BapiStructure
-public class Flight
-{
+public class Flight {
+
     @Parameter("CARRID")
     private String carrierId;
 
@@ -398,45 +384,23 @@ public class Flight
     @Parameter("SEATSOCC")
     private int seatsOccupied;
 
-    public String getAirportFrom()
-    {
-        return this.airportFrom;
+    public String getAirportFrom() { return this.airportFrom; }
+
+    public String getAirportTo() { return this.airportTo; }
+
+    public String getCarrierId() { return this.carrierId; }
+
+    public String getConnectionId() { return this.connectionId; }
+
+    public Date getDepartureTime() {
+      return DateUtil.joinDateAndTime( flightDate, departureTime );
     }
 
-    public String getAirportTo()
-    {
-        return this.airportTo;
-    }
+    public Date getFlightDate() { return flightDate; }
 
-    public String getCarrierId()
-    {
-        return this.carrierId;
-    }
+    public int getSeatsMax() { return this.seatsMax; }
 
-    public String getConnectionId()
-    {
-        return this.connectionId;
-    }
-
-    public Date getDepartureTime()
-    {
-        return DateUtil.joinDateAndTime( flightDate, departureTime );
-    }
-
-    public Date getFlightDate()
-    {
-        return flightDate;
-    }
-
-    public int getSeatsMax()
-    {
-        return this.seatsMax;
-    }
-
-    public int getSeatsOccupied()
-    {
-        return this.seatsOccupied;
-    }
+    public int getSeatsOccupied() { return this.seatsOccupied; }
 }
 ----
 
@@ -505,8 +469,7 @@ In a real application this should be done once, reusing the SessionManager throu
 ----
 public class HibersapTest {
 
-    public SessionManager createSessionManager()
-    {
+    public SessionManager createSessionManager() {
         AnnotationConfiguration configuration = new AnnotationConfiguration("A12");
         return configuration.buildSessionManager();
     }
@@ -522,21 +485,19 @@ to Java fields in our BAPI Class.
 
 [source,java]
 ----
-public void showFlightList()
-{
+public void showFlightList() {
+
     SessionManager sessionManager = createSessionManager();
 
     Session session = sessionManager.openSession();
-    try
-    {
+    try {
         FlightListBapi flightList = new FlightListBapi( "DE", "Frankfurt",
                                                         "DE", "Berlin",
                                                         null, false, 10 );
         session.execute( flightList );
         showResult( flightList );
     }
-    finally
-    {
+    finally {
         session.close();
     }
 }
@@ -547,8 +508,8 @@ To see the result of the function call, we simply print the BAPI class' fields t
 
 [source,java]
 ----
-private void showResult( FlightListBapi flightList )
-{
+private void showResult( FlightListBapi flightList ) {
+
     System.out.println( "AirlineId: " + flightList.getFromCountryKey() );
     System.out.println( "FromCity: " + flightList.getFromCity() );
     System.out.println( "ToCountryKey: " + flightList.getToCountryKey() );
@@ -560,8 +521,7 @@ private void showResult( FlightListBapi flightList )
 
     System.out.println( "\nFlightData" );
     List<Flight> flights = flightList.getFlightList();
-    for ( Flight flight : flights )
-    {
+    for ( Flight flight : flights ) {
         System.out.print( "\t" + flight.getAirportFrom() );
         System.out.print( "\t" + flight.getAirportTo() );
         System.out.print( "\t" + flight.getCarrierId() );
