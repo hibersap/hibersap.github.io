@@ -7,7 +7,7 @@ ifdef::env-github[:idprefix: user-content-]
 :language: {source-language}
 
 == The fun way to connect to SAP
-Hibersap helps developers of Java applications to call business logic and access data in SAP backends.
+Hibersap is a Java library that helps developers to call business logic and access data in SAP backends.
 
 === How does Hibersap work?
 Hibersap defines a set of Java annotations to map SAP function modules to Java classes as well as a small and
