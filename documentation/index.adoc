@@ -38,6 +38,10 @@ link:https://github.com/hibersap/cuckoo-hibersap-example[Cuckoo Hibersap Example
 
 === Tooling
 
+link:https://sourceforge.net/p/cuckoo-ra/home[Cuckoo Resource Adapter for SAP]::
+  Open source resource adapter compatible to the Java EE Connector Architecture (JCA) standard.
+  Recommended if you use Hibersap in a Java EE application.
+
 link:https://github.com/bjoben/camel-hibersap[Apache Camel Hibersap component]::
   Component to integrate Hibersap into your link:http://camel.apache.org[Apache Camel] routes, by link:https://github.com/bjoben[Björn Bength]
 

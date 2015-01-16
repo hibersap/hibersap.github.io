@@ -6,6 +6,130 @@ ifdef::env-github[:idprefix: user-content-]
 :source-language: java
 :language: {source-language}
 
-== TODO
 
-TODO
+== Contributing
+
+
+=== Submit an issue
+
+If you want to report a bug or request a new feature, please use the
+link:https://github.com/hibersap/hibersap/issues[Hibersap issue tracker on GitHub].
+Before filing an issue please make sure it isn't already on the tracker.
+
+When submitting a bug please include the Hibersap and JCo version as well as the
+Resource Adapter if you use one and its version.
+
+
+=== Submit code
+
+Before you submit a pull request on GitHub always create an issue on the issue tracker.
+
+
+==== Fork the repository
+
+If you want to contribute to the Hibersap project, the first thing to do is to fork the original GitHub repository to your own GitHub account by clicking the fork button in the link:https://github.com/hibersap/hibersap[Hibersap repository]:
+
+image:/img/GitHubFork.png[Fork on GitHub]
+
+
+==== Clone the forked repository
+
+The forked repository is now part of your GitHub account's list of repositories. Clone the GitHub repository by executing the following command on your command line:
+
+----
+$ git clone git@github.com:YOUR_USERNAME/hibersap.git
+----
+
+
+==== Add original repository as remote
+
+Your local repository has your fork on GitHub as a default remote repository (named origin). To be able to pull your changes to the original project repository at a later stage, you need to locally add the latter as an additional remote repository (named upstream):
+
+----
+$ cd hibersap
+$ git remote add upstream git://github.com/hibersap/hibersap.git
+$ git fetch upstream
+----
+
+The fetch command updates your fork with any changes that happened to the original repository in the meantime.
+
+
+==== Create a branch
+
+Create a topic branch for your new feature.
+
+----
+$ git checkout -b my_new_feature
+----
+
+
+==== Develop
+
+Here comes the cool part: Develop your new feature. Write tests. Add and commit changes to your local branch:
+
+----
+$ git add ...
+$ git commit ...
+----
+
+
+==== Push the branch
+
+When you are finished, make sure there are no build errors and all the tests pass. Then, push your branch to your GitHub repository:
+
+----
+$ git push origin my_new_feature
+----
+
+
+==== Send pull request
+
+In your web browser, navigate to your GitHub repository and switch to the branch containing your changes (here: my_new_feature).
+Press the Pull Request button and provide a title and comment. Check the Commits and Files Changed tabs to see if everything is right.
+Finally, press the Send Pull Request button and you are finished.
+
+See also: http://help.github.com/send-pull-requests/
+
+
+=== Submit documentation
+
+You are also welcome to contribute to the Hibersap documentation.
+To submit a pull request, please follow the steps above with a different GitHub repository:
+link:https://github.com/hibersap/hibersap.org[].
+The repository contains the web site including the Hibersap Reference Guide.
+
+The web site is built using link:http://awestruct.org[Awestruct] which itself builds on the Ruby programming language.
+Most of the pages are in AsciiDoc format.
+link:http://asciidoctor.org[Asciidoc] is used to process the AsciiDoc files inside Awestruct.
+As a CSS framework link:http://foundation.zurb.com/[Zurb Foundation] is used.
+
+
+==== Build the web site
+
+To build the Hibersap web site you need to have Ruby installed. You also need to install the following Ruby gems:
+
+----
+$ gem install awestruct coffee-script htmlcompressor uglifier slim
+----
+
+To build the site run the following command from the command line:
+
+----
+$ rake
+----
+
+The default task that will be run by the rake build is `preview`.
+This starts up a web server with the site and you can open it in the browser with the following URL:
+link:http://localhost:4242/[]
+
+To run clean up and run the preview pass `--force`:
+
+----
+$ rake preview --force
+----
+
+To just run the build without starting a web server:
+
+----
+$ rake gen
+----

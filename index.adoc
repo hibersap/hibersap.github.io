@@ -25,5 +25,5 @@ security, connection pooling, etc., you can focus on writing your business logic
 you just need to change Hibersap configuration.
 
 [.button.small]
-link:example/[*Learn More icon:arrow-circle-o-right[]*]
+link:/details/[*Learn More icon:arrow-circle-o-right[]*]
 
