@@ -18,3 +18,8 @@ asciidoctor:
     sectanchors: ''
     icons: font
 
+profiles:
+  production:
+    base_url: http://cerker.github.com/github_pages
+    deploy:
+      host: github_pages
