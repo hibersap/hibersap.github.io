@@ -172,14 +172,15 @@ $default-float: left;
 
 // Control header font styles
 
-$header-font-family: "Yanone Kaffeesatz", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
-// $header-font-style: normal;
+$header-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-weight: 300;
+$header-font-style: normal;
 // $header-font-color: #222;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
+$header-top-margin: .5em;
 // $header-bottom-margin: .5em;
-// $header-text-rendering: optimizeLegibility;
+$header-text-rendering: optimizeLegibility;
 
 // Control header font sizes
 
@@ -220,6 +221,7 @@ $header-font-family: "Yanone Kaffeesatz", "Helvetica", Helvetica, Arial, sans-se
 // $code-color: darken($alert-color, 15%);
 // $code-font-family: Consolas, 'Liberation Mono', Courier, monospace;
 // $code-font-weight: bold;
+$code-font-weight: normal;
 
 // Style anchors
 
@@ -368,9 +370,9 @@ $header-font-family: "Yanone Kaffeesatz", "Helvetica", Helvetica, Arial, sans-se
 
 // We use these to control button text styles.
 
-// $button-font-family: inherit;
-// $button-font-color: #fff;
-// $button-font-color-alt: #333;
+//$button-font-family: inherit;
+//$button-font-color: #fff;
+//$button-font-color-alt: #333;
 // $button-font-med: em-calc(16);
 // $button-font-tny: em-calc(11);
 // $button-font-sml: em-calc(13);
@@ -1317,10 +1319,10 @@ $topbar-height: 45px;
 // Divider Styles
 
 // $topbar-divider-border-bottom: solid 1px lighten($topbar-bg-color, 10%);
-//  $topbar-divider-border-top: solid 1px darken($topbar-bg-color, 10%);
+//  $topbar-divider-border-top: solid 10px darken($topbar-bg-color, 50%);
 
 // Sticky Class
 
-// $topbar-sticky-class: ".sticky";
-// $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
+//$topbar-sticky-class: ".sticky";
+//$topbar-arrows: true; //Set false to remove the triangle icon from the menu item
 
