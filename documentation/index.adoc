@@ -9,7 +9,67 @@ ifdef::env-github[:idprefix: user-content-]
 :language: {source-language}
 
 
-== Manuals, Guides
+== Get Help
+
+
+=== Guides
 
 link:reference/[Hibersap Reference Manual]::
-  The A to Z guide to Hibersap.
+  The A to Z guide to Hibersap
+
+link:example/[Step by step example]::
+  Develop an example application step by step
+
+
+=== Issues
+
+link:https://github.com/hibersap/hibersap/issues[Hibersap issue tracker]::
+  Submit issues and feature requests to the Hibersap issue tracker on GitHub
+
+
+=== Code
+
+link:https://github.com/hibersap/hibersap[Hibersap GitHub repository]::
+  The Hibersap code base
+
+link:https://github.com/hibersap/cuckoo-hibersap-example[Cuckoo Hibersap Example]::
+  Example Java EE application showing how to use Hibersap and the Cuckoo Resource Adapter for SAP in combination
+
+
+=== Tooling
+
+link:https://github.com/bjoben/camel-hibersap[Apache Camel Hibersap component]::
+  Component to integrate Hibersap into your link:http://camel.apache.org[Apache Camel] routes, by link:https://github.com/bjoben[Björn Bength]
+
+link:https://github.com/forge/plugin-hibersap[JBoss Forge plugin]::
+  A link:http://forge.jboss.org[JBoss Forge] plugin to generate Hibersap classes to connect to a SAP system, by link:https://github.com/mxsb[Max Schwaab]
+
+link:http://blog.akquinet.de/2012/07/12/use-jboss-forge-to-generate-hibersap-classes-calling-sap-functions/[Blog on JBoss Forge plugin]::
+  Use JBoss Forge to generate Hibersap classes that call sap functions
+
+link:http://vimeo.com/45260307[JBoss Forge plugin screen-cast]::
+  A screen-cast on link:https://vimeo.com[Vimeo] showing how to use the JBoss Forge plugin
+
+
+=== Papers & Presentations
+
+link:http://de.slideshare.net/hwilming/sap-integration-aufjavaeeart[Integrating SAP the Java EE Way]::
+  Presentation held by link:https://github.com/cerker[Carsten Erker] on October 10th, 2012 at JBoss OneDayTalk conference in Munich
+
+link:http://de.slideshare.net/hwilming/red-hat-jboss-fuse-sapintegrationv06[SAP Integration with Red Hat JBoss Technologies]::
+  Presentation held by link:https://github.com/spagop[Serge Pagop] and link:https://github.com/cerker[Carsten Erker] on October 2nd, 2013 at RedHat Partner Conference, Madrid
+
+link:http://www.sigs-datacom.de/fileadmin/user_upload/zeitschriften/js/2014/06/erker_fink_JS_06_14_Bp6d.pdf[Gut zugeschnitten - Alternativen für die Integration von SAP-Systemen mit Java EE]::
+  Article in JavaSpektrum 6/2014 by link:https://github.com/tnfink[Torsten Fink] and link:https://github.com/cerker[Carsten Erker] (in German)
+
+link:https://jaxenter.de/Java-Magazin/Java-Magazin-910-166101[Hibersap - JCo with Pleasure]::
+  Article in Java Magazin 9/2010 by by link:https://github.com/tnfink[Torsten Fink] and link:https://github.com/cerker[Carsten Erker] (in German)
+
+
+=== Other Resources
+
+link:http://cubiccow.blogspot.de/2012/11/sap-r3-jco-without-jco.html[Sap R/3 JCo with Camel]::
+  Blog about integrating Hibersap with the Apache Camel component, by link:https://github.com/warmuuh[Warmuuh]
+
+link:http://cubiccow.blogspot.de/2012/12/lombokized-hibersap.html[Lombokized Hibersap]::
+  Blog about using Hibersap with link:http://projectlombok.org[Project Lombok], by link:https://github.com/warmuuh[Warmuuh]

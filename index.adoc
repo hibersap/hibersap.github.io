@@ -24,3 +24,6 @@ to communicate with the SAP backend. While retaining the benefits of JCo and JCA
 security, connection pooling, etc., you can focus on writing your business logic. To switch between JCo and JCA
 you just need to change Hibersap configuration.
 
+[.button.small]
+link:example/[*Learn More icon:arrow-circle-o-right[]*]
+
