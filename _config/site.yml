@@ -20,6 +20,6 @@ asciidoctor:
 
 profiles:
   production:
-    base_url: http://cerker.github.com/github_pages
+    base_url: http://cerker.github.io/hibersap.org
     deploy:
       host: github_pages
