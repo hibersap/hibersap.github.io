@@ -18,32 +18,33 @@
   <!-- font-awesome -->
   %link{:rel=>'stylesheet', :type=>'text/css', :href=>"#{site.base_url}/stylesheets/font-awesome.min.css"}
 %body.antialiased
-  %nav.top-bar
-    %ul.title-area
-      %li.name
-        %h1
-          %a(href="#{site.base_url}/")
-            %img{:src=>'/img/HibersapLogo.png', :alt=>'Hibersap'}
-      %li.toggle-topbar.menu-icon
-        %a{:href=>'#'}<
-          %span
-    %section.top-bar-section
-      %ul.right
-        %li.divider
-          %li
-            %a{:href=>"#{site.base_url}/"} Home
-        %li.divider
-          %li
-            %a{:href=>"#{site.base_url}/example"} Example
-        %li.divider
-          %li
-            %a{:href=>"#{site.base_url}/news"} News
-        %li.divider
-          %li
-            %a{:href=>"#{site.base_url}/documentation"} Get Help
-        %li.divider
-          %li
-            %a{:href=>"#{site.base_url}/contribute"} Contribute
+  %div.sticky
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a(href="#{site.base_url}/")
+              %img{:src=>'/img/HibersapLogo.png', :alt=>'Hibersap'}
+        %li.toggle-topbar.menu-icon
+          %a{:href=>'#'}<
+            %span
+      %section.top-bar-section
+        %ul.right
+          %li.divider
+            %li
+              %a{:href=>"#{site.base_url}/"} Home
+          %li.divider
+            %li
+              %a{:href=>"#{site.base_url}/example"} Example
+          %li.divider
+            %li
+              %a{:href=>"#{site.base_url}/news"} News
+          %li.divider
+            %li
+              %a{:href=>"#{site.base_url}/documentation"} Get Help
+          %li.divider
+            %li
+              %a{:href=>"#{site.base_url}/contribute"} Contribute
 
   .row
     .large-12.columns
