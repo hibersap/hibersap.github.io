@@ -52,31 +52,87 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-div.listingblock{
+div.listingblock {
   margin-bottom: 1em;
 }
 
-.button a{
+.button a {
   color: #ffffff;
 }
 
-.button p{
+.button p {
   margin: 0;
 }
 
-h3, h4, h5, h6{
+h3, h4, h5, h6 {
   color: #ba3925;
 }
 
-code{
+code {
   line-height: 1.45;
   font-weight: 400;
 }
 
-.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
-.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
-.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
-.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
-.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
-.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+div.row {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+footer {
+  color: #fff;
+  background-color: #136e9e;
+  line-height: 20px;
+  font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: .95em;
+  font-weight: 300;
+  font-style: normal;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: dotted 1px #a5d8c7;
+  line-height: inherit;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: solid 1px #a5d8c7;
+  line-height: inherit;
+}
+
+.admonitionblock td.icon [class^="fa icon-"] {
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  cursor: default
+}
+
+.admonitionblock td.icon .icon-note:before {
+  content: "\f05a";
+  color: #19407c
+}
+
+.admonitionblock td.icon .icon-tip:before {
+  content: "\f0eb";
+  text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+  color: #111
+}
+
+.admonitionblock td.icon .icon-warning:before {
+  content: "\f071";
+  color: #bf6900
+}
+
+.admonitionblock td.icon .icon-caution:before {
+  content: "\f06d";
+  color: #bf3400
+}
+
+.admonitionblock td.icon .icon-important:before {
+  content: "\f06a";
+  color: #bf0000
+}
 

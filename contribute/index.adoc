@@ -122,7 +122,7 @@ The default task that will be run by the rake build is `preview`.
 This starts up a web server with the site and you can open it in the browser with the following URL:
 link:http://localhost:4242/[]
 
-To run clean up and run the preview pass `--force`:
+To clean up and run the preview pass `--force`:
 
 ----
 $ rake preview --force
@@ -132,4 +132,10 @@ To just run the build without starting a web server:
 
 ----
 $ rake gen
+----
+
+Deploy to GitHub pages:
+
+----
+$ awestruct -P production -g --deploy
 ----

@@ -54,15 +54,32 @@
     .large-12.columns
       ~ content
   %footer.row(style='max-width: 100%')
-    %hr
-    .large-6.columns
-      %p(style='margin-bottom: .5em; font-size: .75em')
-        &copy; 2008-#{Date.today.year} #{site.org}
-    .large-6.columns
-      %p(style='margin-bottom: .5em; font-size: .75em')
-        %ul.inline-list.right
-          %li
-            %a{:href=>"#{site.base_url}/"} Home
+    .large-12.columns
+      .text-center
+        %div
+          Copyright &copy; 2008-#{Date.today.year},
+          %a{:href=>"http://akquinet.de"}
+            #{site.org}
+        %div(style='font-size: .75em')
+          Hibersap is licensed under the
+          %a{:href=>"http://www.apache.org/licenses/LICENSE-2.0"}
+            Apache License, Version 2.0
+        %div
+          %i{:class=>"fa fa-github", :style=>"font-size: 1em"}
+          %a{:href=>"https://github.com/hibersap"}
+            GitHub Project
+          &nbsp;&middot;&nbsp;
+          %i{:class=>"fa fa-exclamation-circle", :style=>"font-size: 1em"}
+          %a{:href=>"https://github.com/hibersap/hibersap/issues"}
+            Issue Tracker
+          &nbsp;&middot;&nbsp;
+          %i{:class=>"fa fa-comments-o", :style=>"font-size: 1em"}
+          %a{:href=>"https://sourceforge.net/p/hibersap/discussion"}
+            Forums
+          &nbsp;&middot;&nbsp;
+          %i{:class=>"fa fa-twitter", :style=>"font-size: 1em"}
+          %a{:href=>"http://twitter.com/hibersap"}
+            @hibersap
   %script
     document.write('<script src=' + ('__proto__' in {} ? '#{site.base_url}/javascripts/vendor/zepto' : '#{site.base_url}/javascripts/vendor/jquery') + '.js><\/script>')
   %script{:src=>"#{site.base_url}/javascripts/foundation/foundation.js"}

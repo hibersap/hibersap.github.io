@@ -27,3 +27,6 @@ you just need to change Hibersap configuration.
 [.button.small]
 link:/details/[*Learn More icon:arrow-circle-o-right[]*]
 
+
+
+

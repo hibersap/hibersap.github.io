@@ -2,9 +2,9 @@
 layout: base
 ---
 #content
-  h1 Hibersap News
+  h2 Hibersap News
   hr
-  h2 =page.partial
+  h3 =page.partial
   - page.posts.each do |post|
     - page.stem = '' if post.stem
     =partial('entry.html.slim', :post => post, :listing => true, :xxx => 'news')

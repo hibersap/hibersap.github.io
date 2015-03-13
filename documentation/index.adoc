@@ -21,10 +21,13 @@ link:example/[Step by step example]::
   Develop an example application step by step
 
 
-=== Issues
+=== Issues & Forums
 
 link:https://github.com/hibersap/hibersap/issues[Hibersap issue tracker]::
   Submit issues and feature requests to the Hibersap issue tracker on GitHub
+
+link:https://sourceforge.net/p/hibersap/discussion/[Hibersap Forums]::
+  Ask questions and share your ideas on the Sourceforge Hibersap forums
 
 
 === Code
