@@ -379,7 +379,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -5661,33 +5661,64 @@ code {
   font-weight: 400; }
 
 /* line 76, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+div.row {
+  padding-top: 2em;
+  padding-bottom: 2em; }
+
+/* line 81, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+footer {
+  color: #fff;
+  background-color: #136e9e;
+  line-height: 20px;
+  font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: .95em;
+  font-weight: 300;
+  font-style: normal;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+/* line 93, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+footer a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: dotted 1px #a5d8c7;
+  line-height: inherit; }
+
+/* line 100, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+footer a:hover {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: solid 1px #a5d8c7;
+  line-height: inherit; }
+
+/* line 107, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
 .admonitionblock td.icon [class^="fa icon-"] {
   font-size: 2.5em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   cursor: default; }
 
-/* line 77, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+/* line 113, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
 .admonitionblock td.icon .icon-note:before {
   content: "\f05a";
   color: #19407c; }
 
-/* line 78, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+/* line 118, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
 .admonitionblock td.icon .icon-tip:before {
   content: "\f0eb";
   text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8);
-  color: #111; }
+  color: #111111; }
 
-/* line 79, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+/* line 124, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
 .admonitionblock td.icon .icon-warning:before {
   content: "\f071";
   color: #bf6900; }
 
-/* line 80, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+/* line 129, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
 .admonitionblock td.icon .icon-caution:before {
   content: "\f06d";
   color: #bf3400; }
 
-/* line 81, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
+/* line 134, /Users/carsten/devel/hibersap.github.io/stylesheets/app.scss */
 .admonitionblock td.icon .icon-important:before {
   content: "\f06a";
   color: #bf0000; }
