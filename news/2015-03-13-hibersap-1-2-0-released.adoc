@@ -1,0 +1,33 @@
+= Hibersap 1.2.0 released
+Carsten Erker
+2015-03-13
+
+We are happy to announce the Hibersap 1.2.0 release!
+
+The artifacts for the new Hibersap version can be found in Maven central.
+
+Besides the enhancements, we changed the license under which the Hibersap project is distributed from the Lesser GNU Public License (LGPL) to the Apache License. This should make it easier to integrate Hibersap with other libraries.
+
+pass::[more]
+
+Here are the changes for Hibersap 1.2.0:
+
+*Enhancement*
+
+[link:https://github.com/hibersap/hibersap/issues/3[3]] - Create OSGi bundles for Hibersap (thanks to link:https://github.com/cschneider[Christian Schneider])
+
+[link:https://github.com/hibersap/hibersap/issues/4[4]] - Support Tables in Import and Export Parameter (thanks to link:https://github.com/croeck[Cedric Röck])
+
+
+*Documentation*
+
+[link:https://github.com/hibersap/hibersap/issues/18[18]] - Update documentation (new web site hosted on GitHub)
+
+
+*Task*
+
+[link:https://github.com/hibersap/hibersap/issues/19[19]] - Change to Apache License, Version 2.0
+
+For details see the link:https://github.com/hibersap/hibersap/issues?q=milestone%3Av1.2.0+[Hibersap issue tracker]
+
+

@@ -1,0 +1,17 @@
+= A new site for Hibersap
+Carsten Erker
+2015-03-13
+
+Today we are launching the new Hibersap site.
+The new site is hosted on link:http://github.com[GitHub] and is baked with link:http://awestruct.org[Awestruct] while most of the content is edited using link:http://www.methods.co.nz/asciidoc/[AsciiDoc].
+
+After moving the Hibersap code base and issue tracking away from link:http://sf.net/p/hibersap[Sourceforge] to GitHub this is the logical next step to make it much easier for you to contribute to the code and docs.
+Because it is also much easier for us to deploy changes to the site we are now able to update the docs much more often.
+
+pass::[more]
+
+We think the new site also does a much better job in presenting the Hibersap project, with a general overview, examples, a detailed step-by-step example, a news blog (which you are reading right now), a detailed overview of further resources and an updated reference guide.
+
+Thanks go out to GitHub and the many cool open source projects that helped us get the site up and running: Awestruct, link:http://foundation.zurb.com[ZURB Foundation], link:http://fortawesome.github.io/Font-Awesome/[Font Awesome] and link:http://slim-lang.com[Slim].
+Special thanks go to the link:http://asciidoctor.org[Asciidoctor] project which offers a great toolchain making it real fun to work on documentation!
+
