@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Hibersap home</title>
+<link href="http://hibersap.github.io/stylesheets/app.css" rel="stylesheet">
+<script src="http://hibersap.github.io/javascripts/vendor/custom.modernizr.js"></script>
+<link href="http://hibersap.github.io/humans.txt" rel="author" type="text/plain">
+<!-- Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
+<!-- highlight.js -->
+<link href="http://hibersap.github.io/stylesheets/default.min.css" rel="stylesheet" type="text/css">
+<script src="http://hibersap.github.io/javascripts/vendor/highlight.min.js"></script>
+<!-- font-awesome -->
+<link href="http://hibersap.github.io/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body class="antialiased">
+<div class="sticky">
+<nav class="top-bar">
+<ul class="title-area">
+<li class="name">
+<h1>
+<a href="http://hibersap.github.io/">
+<img alt="Hibersap" src="#{site.base_url}/img/HibersapLogo.png">
+</a>
+</h1>
+</li>
+<li class="toggle-topbar menu-icon">
+<a href="#"><span></span></a>
+</li>
+</ul>
+<section class="top-bar-section">
+<ul class="right">
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/">Home</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/details">Details</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/example">Example</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/news">News</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/documentation">Get Help</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/contribute">Contribute</a>
+</li>
+</li>
+</ul>
+</section>
+</nav>
+</div>
+<div class="row">
+<div class="large-12 columns">
+<div class="sect1">
+<h2 id="contributing"><a class="anchor" href="#contributing"></a>Contributing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="submit-an-issue"><a class="anchor" href="#submit-an-issue"></a>Submit an issue</h3>
+<div class="paragraph">
+<p>If you want to report a bug or request a new feature, please use the
+<a href="https://github.com/hibersap/hibersap/issues">Hibersap issue tracker on GitHub</a>.
+Before filing an issue please make sure it isn&#8217;t already on the tracker.</p>
+</div>
+<div class="paragraph">
+<p>When submitting a bug please include the Hibersap and JCo version as well as the
+Resource Adapter if you use one and its version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="submit-code"><a class="anchor" href="#submit-code"></a>Submit code</h3>
+<div class="paragraph">
+<p>Before you submit a pull request on GitHub always create an issue on the issue tracker.</p>
+</div>
+<div class="sect3">
+<h4 id="fork-the-repository"><a class="anchor" href="#fork-the-repository"></a>Fork the repository</h4>
+<div class="paragraph">
+<p>If you want to contribute to the Hibersap project, the first thing to do is to fork the original GitHub repository to your own GitHub account by clicking the fork button in the <a href="https://github.com/hibersap/hibersap">Hibersap repository</a>:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/img/GitHubFork.png" alt="Fork on GitHub"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clone-the-forked-repository"><a class="anchor" href="#clone-the-forked-repository"></a>Clone the forked repository</h4>
+<div class="paragraph">
+<p>The forked repository is now part of your GitHub account&#8217;s list of repositories. Clone the GitHub repository by executing the following command on your command line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git clone git@github.com:YOUR_USERNAME/hibersap.git</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-original-repository-as-remote"><a class="anchor" href="#add-original-repository-as-remote"></a>Add original repository as remote</h4>
+<div class="paragraph">
+<p>Your local repository has your fork on GitHub as a default remote repository (named origin). To be able to pull your changes to the original project repository at a later stage, you need to locally add the latter as an additional remote repository (named upstream):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd hibersap&#x000A;$ git remote add upstream git://github.com/hibersap/hibersap.git&#x000A;$ git fetch upstream</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The fetch command updates your fork with any changes that happened to the original repository in the meantime.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="create-a-branch"><a class="anchor" href="#create-a-branch"></a>Create a branch</h4>
+<div class="paragraph">
+<p>Create a topic branch for your new feature.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git checkout -b my_new_feature</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="develop"><a class="anchor" href="#develop"></a>Develop</h4>
+<div class="paragraph">
+<p>Here comes the cool part: Develop your new feature. Write tests. Add and commit changes to your local branch:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git add ...&#x000A;$ git commit ...</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="push-the-branch"><a class="anchor" href="#push-the-branch"></a>Push the branch</h4>
+<div class="paragraph">
+<p>When you are finished, make sure there are no build errors and all the tests pass. Then, push your branch to your GitHub repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git push origin my_new_feature</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="send-pull-request"><a class="anchor" href="#send-pull-request"></a>Send pull request</h4>
+<div class="paragraph">
+<p>In your web browser, navigate to your GitHub repository and switch to the branch containing your changes (here: my_new_feature).
+Press the Pull Request button and provide a title and comment. Check the Commits and Files Changed tabs to see if everything is right.
+Finally, press the Send Pull Request button and you are finished.</p>
+</div>
+<div class="paragraph">
+<p>See also: <a href="http://help.github.com/send-pull-requests/" class="bare">http://help.github.com/send-pull-requests/</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="submit-documentation"><a class="anchor" href="#submit-documentation"></a>Submit documentation</h3>
+<div class="paragraph">
+<p>You are also welcome to contribute to the Hibersap documentation.
+To submit a pull request, please follow the steps above with a different GitHub repository:
+<a href="https://github.com/hibersap/hibersap.org" class="bare">https://github.com/hibersap/hibersap.org</a>.
+The repository contains the web site including the Hibersap Reference Guide.</p>
+</div>
+<div class="paragraph">
+<p>The web site is built using <a href="http://awestruct.org">Awestruct</a> which itself builds on the Ruby programming language.
+Most of the pages are in AsciiDoc format.
+<a href="http://asciidoctor.org">Asciidoc</a> is used to process the AsciiDoc files inside Awestruct.
+As a CSS framework <a href="http://foundation.zurb.com/">Zurb Foundation</a> is used.</p>
+</div>
+<div class="sect3">
+<h4 id="build-the-web-site"><a class="anchor" href="#build-the-web-site"></a>Build the web site</h4>
+<div class="paragraph">
+<p>To build the Hibersap web site you need to have Ruby installed. You also need to install the following Ruby gems:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install awestruct coffee-script htmlcompressor uglifier slim</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To build the site run the following command from the command line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rake</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default task that will be run by the rake build is <code>preview</code>.
+This starts up a web server with the site and you can open it in the browser with the following URL:
+<a href="http://localhost:4242/" class="bare">http://localhost:4242/</a></p>
+</div>
+<div class="paragraph">
+<p>To run clean up and run the preview pass <code>--force</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rake preview --force</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To just run the build without starting a web server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rake gen</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="row" style="max-width: 100%">
+<hr>
+<div class="large-6 columns">
+<p style="margin-bottom: .5em; font-size: .75em">
+&copy; 2008-2015 akquinet tech@spree GmbH
+</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li>
+<a href="http://hibersap.github.io/">Home</a>
+</li>
+</ul>
+</div>
+</footer>
+<script>
+document.write('<script src=' + ('__proto__' in {} ? 'http://hibersap.github.io/javascripts/vendor/zepto' : 'http://hibersap.github.io/javascripts/vendor/jquery') + '.js><\/script>')
+</script>
+<script src="http://hibersap.github.io/javascripts/foundation/foundation.js"></script>
+<script src="http://hibersap.github.io/javascripts/foundation/foundation.topbar.js"></script>
+<script>
+$(document).foundation()
+</script>
+<script>
+hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>

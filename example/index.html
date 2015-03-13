@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Hibersap home</title>
+<link href="http://hibersap.github.io/stylesheets/app.css" rel="stylesheet">
+<script src="http://hibersap.github.io/javascripts/vendor/custom.modernizr.js"></script>
+<link href="http://hibersap.github.io/humans.txt" rel="author" type="text/plain">
+<!-- Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
+<!-- highlight.js -->
+<link href="http://hibersap.github.io/stylesheets/default.min.css" rel="stylesheet" type="text/css">
+<script src="http://hibersap.github.io/javascripts/vendor/highlight.min.js"></script>
+<!-- font-awesome -->
+<link href="http://hibersap.github.io/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body class="antialiased">
+<div class="sticky">
+<nav class="top-bar">
+<ul class="title-area">
+<li class="name">
+<h1>
+<a href="http://hibersap.github.io/">
+<img alt="Hibersap" src="#{site.base_url}/img/HibersapLogo.png">
+</a>
+</h1>
+</li>
+<li class="toggle-topbar menu-icon">
+<a href="#"><span></span></a>
+</li>
+</ul>
+<section class="top-bar-section">
+<ul class="right">
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/">Home</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/details">Details</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/example">Example</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/news">News</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/documentation">Get Help</a>
+</li>
+</li>
+<li class="divider">
+<li>
+<a href="http://hibersap.github.io/contribute">Contribute</a>
+</li>
+</li>
+</ul>
+</section>
+</nav>
+</div>
+<div class="row">
+<div class="large-12 columns">
+<div class="sect1">
+<h2 id="step-by-step-example"><a class="anchor" href="#step-by-step-example"></a>Step by step example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this example we will create a simple Maven project which uses Hibersap to call a function in SAP and print the result to the command line.</p>
+</div>
+<div class="sect2">
+<h3 id="download-and-install-the-sap-java-connector"><a class="anchor" href="#download-and-install-the-sap-java-connector"></a>Download and install the SAP Java Connector</h3>
+<div class="paragraph">
+<p>Download SAP Java Connector 3 from <a href="http://service.sap.com/connectors" class="bare">http://service.sap.com/connectors</a> and extract the sapjco3.jar and the sapjco3 native library.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The native library implements the underlying communication protocol (SAP RFC, Remote Function Call)
+and is needed by the sapjco3.jar at runtime. Since native libraries are different for each
+operating system and processor architecture, there are different distributions for the JCo,
+e.g. Windows on Intel x86, 64 bit JVM or Mac, 32 bit JVM.
+Make sure to download the correct distribution for the OS/architecture combination on which your application will be running.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Install the sapjco3 jar to your local Maven repository from the command line.
+In the example we assume you use version 3.0.12, if not so, replace to version number with the correct value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion=3.0.12 \\&#x000A;                         -Dpackaging=jar -Dfile=/path/to/sapjco3.jar</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-a-maven-project-with-the-required-dependencies"><a class="anchor" href="#create-a-maven-project-with-the-required-dependencies"></a>Create a Maven project with the required dependencies</h3>
+<div class="paragraph">
+<p>Create a Maven project with the following dependencies:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&#x000A;         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&#x000A;         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;&#x000A;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#x000A;    &lt;groupId&gt;com.mycompany&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;hibersap-example&lt;/artifactId&gt;&#x000A;    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;&#x000A;    &lt;dependencies&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-core&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.2.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-jco&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.2.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;sapjco3&lt;/artifactId&gt;&#x000A;            &lt;version&gt;3.0.12&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;    &lt;/dependencies&gt;&#x000A;&lt;/project&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="implement-the-application"><a class="anchor" href="#implement-the-application"></a>Implement the application</h3>
+<div class="paragraph">
+<p>Our little application will call the SAP function BAPI_SFLIGHT_GETLIST.
+This function is part of a demo application in SAP that implements a simplified flight-booking system.</p>
+</div>
+<div class="sect3">
+<h4 id="examine-the-function-module"><a class="anchor" href="#examine-the-function-module"></a>Examine the function module</h4>
+<div class="paragraph">
+<p>First, we will take a look at the SAP function module we will call.
+The following is the function module&#8217;s interface.
+The function is written in SAP&#8217;s programming language <a href="http://en.wikipedia.org/wiki/ABAP">ABAP</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-abap" data-lang="abap">FUNCTION BAPI_SFLIGHT_GETLIST.&#x000A;  IMPORTING&#x000A;     VALUE(FROMCOUNTRYKEY) LIKE  BAPISFDETA-COUNTRYFR&#x000A;     VALUE(FROMCITY)       LIKE  BAPISFDETA-CITYFROM&#x000A;     VALUE(TOCOUNTRYKEY)   LIKE  BAPISFDETA-COUNTRYTO&#x000A;     VALUE(TOCITY)         LIKE  BAPISFDETA-CITYTO&#x000A;     VALUE(AIRLINECARRIER) LIKE  BAPISFDETA-CARRID DEFAULT SPACE&#x000A;     VALUE(AFTERNOON)      LIKE  BAPI_AUX-AFTERNOON DEFAULT SPACE&#x000A;     VALUE(MAXREAD)        LIKE  BAPI_AUX-MAXREAD DEFAULT 0&#x000A;  EXPORTING&#x000A;     VALUE(RETURN)         LIKE  BAPIRET2 STRUCTURE  BAPIRET2&#x000A;  TABLES&#x000A;     FLIGHTLIST            STRUCTURE  BAPISFLIST</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The function&#8217;s interface defines some parameters that represent search criteria to look up flights in SAP&#8217;s database.
+The matching flights are returned in the FLIGHTLIST table, which contains information such as
+the airline carrier id, a flight connection code and departure / destination data.
+In the RETURN structure the function may return extra messages like errors, warnings, etc.</p>
+</div>
+<div class="paragraph">
+<p>In this function, the import parameters are simple types, whereas the export and table parameter are complex data types (ABAP structures).
+The RETURN parameter is of type BAPIRET2, which is a standard structure that can be found in many function modules'
+interfaces and is not specific to this BAPI. This are the individual elements:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message type: S Success, E Error, W Warning, I Info, A Abort</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messages, message class</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NUMBER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numeric character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messages, message number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MESSAGE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LOG_NO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application log: log number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LOG_MSG_NO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numeric character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application log: Internal message serial number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MESSAGE_V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messages, message variables</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MESSAGE_V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messages, message variables</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MESSAGE_V3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messages, message variables</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MESSAGE_V4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Messages, message variables</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PARAMETER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ROW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4-byte integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lines in parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FIELD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Field in parameter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SYSTEM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical system from which message originates</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The FLIGHTLIST table&#8217;s lines are of type BAPISFLIST which contains the following elements:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 28%;">
+<col style="width: 28%;">
+<col style="width: 42%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CARRID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Airline carrier ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CONNID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numerical character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flight connection code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FLDATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flight date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AIRPFROM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Airport of departure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AIRPTO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destination airport</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPTIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Departure time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SEATSMAX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4-byte integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum capacity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SEATSOCC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4-byte integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occupied seats</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Our goal is to map all those parameters to Java classes and their fields which we will achieve using Java annotations defined by Hibersap.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implement-the-bapi-class"><a class="anchor" href="#implement-the-bapi-class"></a>Implement the BAPI class</h4>
+<div class="paragraph">
+<p>Next, we will write a <em>BAPI class</em> that acts as an adapter to the JCo function.
+The BAPI class is a simple Java class with a number of fields representing the BAPI&#8217;s import,
+export and table parameters. In case the BAPI parameter being a scalar parameter, the Java field itself is of a
+simple Java type. In the case of a structure parameter, the Java field&#8217;s type is of a complex type.
+A table parameter maps to an Array or a Collection of a complex type.</p>
+</div>
+<div class="paragraph">
+<p>All setup related to the function module&#8217;s interface is done via Java annotations.
+A BAPI class is defined using the Hibersap class annotation <code>@Bapi</code>,
+which has an argument specifying the name of the SAP function module we want to call.
+(All Hibersap annotations can be found in the package <code>org.hibersap.annotations</code>.)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.hibersap.examples.flightlist;&#x000A;&#x000A;import java.util.List;&#x000A;import org.hibersap.*;&#x000A;&#x000A;@Bapi("BAPI_SFLIGHT_GETLIST")&#x000A;public class FlightListBapi {&#x000A;  // ...&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Java fields that will be mapped to the function module&#8217;s parameters are annotated with the
+<code>@Import</code>, <code>@Export</code> or <code>@Table</code> annotations to tell Hibersap which kind of parameter it shall handle.
+Additionally, we have to specify the function module&#8217;s field name
+to which it relates, using the <code>@Parameter</code> annotation.
+The <code>@Parameter</code> 's second argument, <code>type</code>, tells Hibersap if the parameter is mapped to a simple or complex type.
+The enumeration <code>ParameterType</code> defines possible values, the default type for element type being <code>SIMPLE</code>.
+In most cases we have to specify a parameter&#8217;s name only. In case of table parameters the <code>type</code> argument will be
+ignored by Hibersap since tables always have a complex type for each table line.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Import&#x000A;@Parameter("FROMCOUNTRYKEY")&#x000A;private final String fromCountryKey;&#x000A;&#x000A;@Import&#x000A;@Parameter("FROMCITY")&#x000A;private final String fromCity;&#x000A;&#x000A;@Import&#x000A;@Parameter("TOCOUNTRYKEY")&#x000A;private final String toCountryKey;&#x000A;&#x000A;@Import&#x000A;@Parameter("TOCITY")&#x000A;private final String toCity;&#x000A;&#x000A;@Import&#x000A;@Parameter("AIRLINECARRIER")&#x000A;private final String airlineCarrier;&#x000A;&#x000A;@Import&#x000A;@Parameter("AFTERNOON")&#x000A;@Convert(converter = BooleanConverter.class)&#x000A;private final boolean afternoon;&#x000A;&#x000A;@Import&#x000A;@Parameter("MAXREAD")&#x000A;private final int maxRead;&#x000A;&#x000A;@Export&#x000A;@Parameter(value="RETURN", type = ParameterType.STRUCTURE)&#x000A;private BapiRet2 returnData;&#x000A;&#x000A;@Table&#x000A;@Parameter("FLIGHTLIST")&#x000A;private List&lt;Flight&gt; flightList;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Java type of each simple field is related to the SAP field&#8217;s data type.
+Hibersap relies on the Java Connector&#8217;s conversion scheme.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@Convert</code> annotation on the field <code>afternoon</code> in the listing above tells Hibersap
+to use a Converter of type <code>BooleanConverter</code> to convert the parameter AFTERNOON (which is a character field of length 1 in SAP)
+to a Java boolean value.
+See section <a href="/documentation/reference/#type-conversion">Type Conversion</a> in the Hibersap Reference Manual for a deeper discussion of custom converters.</p>
+</div>
+<div class="paragraph">
+<p>To conclude the example, we write a constructor which has all the import parameters as arguments,
+initializing the corresponding fields:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public FlightListBapi(String fromCountryKey,&#x000A;                        String fromCity,&#x000A;                        String toCountryKey,&#x000A;                        String airlineCarrier,&#x000A;                        String toCity,&#x000A;                        boolean afternoon,&#x000A;                        int maxRead) {&#x000A;&#x000A;    this.fromCountryKey = fromCountryKey;&#x000A;    this.fromCity = fromCity;&#x000A;    this.toCountryKey = toCountryKey;&#x000A;    this.toCity = toCity;&#x000A;    this.airlineCarrier = airlineCarrier;&#x000A;    this.afternoon = afternoon;&#x000A;    this.maxRead = maxRead;&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, we add a getter method for each field.
+Hibersap itself does not need setter methods, because all fields are set using reflection.
+Additional fields and methods may of course be added.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public boolean getAfternoon() {&#x000A;    return this.afternoon;&#x000A;}&#x000A;&#x000A;// ...</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There is one constraint in the current version of Hibersap you should take into account: The mapping
+between SAP parameters and Java classes works as expected only if the SAP function module complies to the BAPI standard.
+As of now, this means:</p>
+</div>
+<div class="paragraph">
+<p>Deep tables (i. e. tables in tables or tables in structures) are not supported.</p>
+</div>
+<div class="paragraph">
+<p>Changing parameters can not be mapped.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implement-structure-classes-for-complex-parameters"><a class="anchor" href="#implement-structure-classes-for-complex-parameters"></a>Implement structure classes for complex parameters</h4>
+<div class="paragraph">
+<p>There are two more classes we need to write:
+One for the complex export parameter RETURN, which is named <code>BapiRet2</code>, after the SAP data type.
+It is another annotated simple Java class with fields related to some of the function module&#8217;s parameter.
+To keep the example simple, we do not map all the fields of the RETURN parameter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.hibersap.bapi;&#x000A;&#x000A;import org.hibersap.annotations.*;&#x000A;&#x000A;@BapiStructure&#x000A;public class BapiRet2 {&#x000A;&#x000A;    @Parameter("TYPE")&#x000A;    @Convert(converter = CharConverter.class)&#x000A;    private char type;&#x000A;&#x000A;    @Parameter("ID")&#x000A;    private String id;&#x000A;&#x000A;    @Parameter("NUMBER")&#x000A;    private String number;&#x000A;&#x000A;    @Parameter("MESSAGE")&#x000A;    private String message;&#x000A;&#x000A;    public char getType() { return this.type; }&#x000A;&#x000A;    public String getId() { return this.id; }&#x000A;&#x000A;    public String getNumber() { return this.number; }&#x000A;&#x000A;    public String getMessage() { return this.message; }&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The class is annotated with <code>@BapiStructure</code> to tell Hibersap that it maps to
+a complex parameter on the SAP side. Each particular field is annotated with the
+already known <code>@Parameter</code> annotation that defines the name of the corresponding structure field.
+The <code>BapiRet2</code> class is already part of Hibersap, since this structure is used by a lot of
+SAP function modules. This means, you don&#8217;t have to implement it yourself.</p>
+</div>
+<div class="paragraph">
+<p>The second class we need to implement is a Java class that Hibersap will map to each row in the
+table parameter FLIGHTLIST, which in our example is simply called <code>Flight</code>.
+The table FLIGHTLIST will be filled by SAP with the flight information matching our request.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.hibersap.examples.flightlist;&#x000A;&#x000A;import java.util.Date;&#x000A;import org.hibersap.*;&#x000A;&#x000A;@BapiStructure&#x000A;public class Flight {&#x000A;&#x000A;    @Parameter("CARRID")&#x000A;    private String carrierId;&#x000A;&#x000A;    @Parameter("CONNID")&#x000A;    private String connectionId;&#x000A;&#x000A;    @Parameter("AIRPFROM")&#x000A;    private String airportFrom;&#x000A;&#x000A;    @Parameter("AIRPTO")&#x000A;    private String airportTo;&#x000A;&#x000A;    @Parameter("FLDATE")&#x000A;    private Date flightDate;&#x000A;&#x000A;    @Parameter("DEPTIME")&#x000A;    private Date departureTime;&#x000A;&#x000A;    @Parameter("SEATSMAX")&#x000A;    private int seatsMax;&#x000A;&#x000A;    @Parameter("SEATSOCC")&#x000A;    private int seatsOccupied;&#x000A;&#x000A;    public String getAirportFrom() { return this.airportFrom; }&#x000A;&#x000A;    public String getAirportTo() { return this.airportTo; }&#x000A;&#x000A;    public String getCarrierId() { return this.carrierId; }&#x000A;&#x000A;    public String getConnectionId() { return this.connectionId; }&#x000A;&#x000A;    public Date getDepartureTime() {&#x000A;      return DateUtil.joinDateAndTime( flightDate, departureTime );&#x000A;    }&#x000A;&#x000A;    public Date getFlightDate() { return flightDate; }&#x000A;&#x000A;    public int getSeatsMax() { return this.seatsMax; }&#x000A;&#x000A;    public int getSeatsOccupied() { return this.seatsOccupied; }&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please note that the method <code>getDepartureTime()</code> does not simply return the field <code>departureTime</code>
+but calls a utility method <code>DateUtil.joinDateAndTime()</code>. This is done here because ABAP&#8201;&#8212;&#8201;unlike Java&#8201;&#8212;&#8201;does not have a
+data type that contains date and time. In ABAP such a timestamp is separated into two fields, one
+of type Date, the other of type Time. Therefore the Java Connector returns a <code>java.util.Date</code> for the SAP
+date field containing the date fraction (date at 00:00:00,000) and another java.util.Date for the time
+field containing the time fraction (i.e. Jan. 1st, 1970 plus time). The utility method joins those two dates
+into one.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configure-hibersap"><a class="anchor" href="#configure-hibersap"></a>Configure Hibersap</h4>
+<div class="paragraph">
+<p>To configure Hibersap, we create an XML file named <code>hibersap.xml</code> in the project&#8217;s <code>src/main/resources/META-INF</code> folder.
+The configuration file contains information for Hibersap itself, plus properties for the SAP Java Connector.</p>
+</div>
+<div class="paragraph">
+<p>In the example we use a minimal set of JCo properties to be able to connect to the SAP system.
+All valid JCo properties are specified in the interface <code>com.sap.conn.jco.ext.DestinationDataProvider</code> of th JCo library
+(for details see javadoc provided with JCo).</p>
+</div>
+<div class="paragraph">
+<p>The values of the JCo client, user, passwd, ashost and sysnr properties must match the SAP system we are connecting to.
+This means, you need to adopt the values to your specific SAP system and user account.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;hibersap xmlns="urn:hibersap:hibersap-configuration:1.0"&gt;&#x000A;  &lt;session-manager name="A12"&gt;&#x000A;    &lt;properties&gt;&#x000A;      &lt;property name="jco.client.client" value="800" /&gt;&#x000A;      &lt;property name="jco.client.user" value="sapuser" /&gt;&#x000A;      &lt;property name="jco.client.passwd" value="password" /&gt;&#x000A;      &lt;property name="jco.client.lang" value="en" /&gt;&#x000A;      &lt;property name="jco.client.ashost" value="10.20.30.40" /&gt;&#x000A;      &lt;property name="jco.client.sysnr" value="00" /&gt;&#x000A;      &lt;property name="jco.destination.pool_capacity" value="5" /&gt;&#x000A;    &lt;/properties&gt;&#x000A;    &lt;annotatedClasses&gt;&#x000A;      &lt;class&gt;org.hibersap.examples.flightlist.FlightListBapi&lt;/class&gt;&#x000A;    &lt;/annotatedClasses&gt;&#x000A;  &lt;/session-manager&gt;&#x000A;&lt;/hibersap&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="call-the-function-module-and-show-the-results"><a class="anchor" href="#call-the-function-module-and-show-the-results"></a>Call the function module and show the results</h4>
+<div class="paragraph">
+<p>To interact with Hibersap, an instance of type <code>SessionManager</code> must be aquired.
+For each SAP system which the application interacts with a <code>SessionManager</code> is needed.
+The <code>SessionManager</code> should only be created once in an application because it is rather expensive to create.</p>
+</div>
+<div class="paragraph">
+<p>The SessionManager is responsible for creating <code>Sessions</code>.
+A <code>Session</code> represents a connection to the SAP system. The first time we call a function module
+on a Session, Hibersap aquires a connection from the underlying connection pool.
+When closing a session, the connection is returned to the pool. The application has to take care
+of closing the session whenever it is not needed anymore, preferably in a finally block.
+If the application keeps open too many sessions, the connection pool may get exhausted sooner or later.
+Any further attempt of opening another session would thus fail.</p>
+</div>
+<div class="paragraph">
+<p>The following function configures a Hibersap <code>SessionManager</code>.
+First, an instance of type AnnotationConfiguration is created for the named SessionManager, as specified in hibersap.xml.
+Finally, the <code>SessionManager</code> is built.
+In a real application this should be done once, reusing the SessionManager throughout the application&#8217;s lifetime.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public class HibersapTest {&#x000A;&#x000A;    public SessionManager createSessionManager() {&#x000A;        AnnotationConfiguration configuration = new AnnotationConfiguration("A12");&#x000A;        return configuration.buildSessionManager();&#x000A;    }&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now it is time to call the function module in SAP.
+After creating the <code>SessionManager</code> and opening a new <code>Session</code>, we create an instance of our BAPI Class,
+passing all parameters needed to execute the function.
+Then we simply call the <code>Session.execute()</code> method, passing the BAPI class which actually performs the call to SAP.
+Now the <code>flightListBapi</code> object is enriched with all the values returned by the function module which we have mapped
+to Java fields in our BAPI Class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public void showFlightList() {&#x000A;&#x000A;    SessionManager sessionManager = createSessionManager();&#x000A;&#x000A;    Session session = sessionManager.openSession();&#x000A;    try {&#x000A;        FlightListBapi flightList = new FlightListBapi( "DE", "Frankfurt",&#x000A;                                                        "DE", "Berlin",&#x000A;                                                        null, false, 10 );&#x000A;        session.execute( flightList );&#x000A;        showResult( flightList );&#x000A;    }&#x000A;    finally {&#x000A;        session.close();&#x000A;    }&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To see the result of the function call, we simply print the BAPI class' fields to the console in the
+<code>showResult()</code> method. Finally, we create a main method that calls the showFlightList() method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">private void showResult( FlightListBapi flightList ) {&#x000A;&#x000A;    System.out.println( "AirlineId: " + flightList.getFromCountryKey() );&#x000A;    System.out.println( "FromCity: " + flightList.getFromCity() );&#x000A;    System.out.println( "ToCountryKey: " + flightList.getToCountryKey() );&#x000A;    System.out.println( "ToCity: " + flightList.getToCity() );&#x000A;    System.out.println( "AirlineCarrier: " + flightList&#x000A;                                             .getAirlineCarrier() );&#x000A;    System.out.println( "Afternoon: " + flightList.getAfternoon() );&#x000A;    System.out.println( "MaxRead: " + flightList.getMaxRead() );&#x000A;&#x000A;    System.out.println( "\nFlightData" );&#x000A;    List&lt;Flight&gt; flights = flightList.getFlightList();&#x000A;    for ( Flight flight : flights ) {&#x000A;        System.out.print( "\t" + flight.getAirportFrom() );&#x000A;        System.out.print( "\t" + flight.getAirportTo() );&#x000A;        System.out.print( "\t" + flight.getCarrierId() );&#x000A;        System.out.print( "\t" + flight.getConnectionId() );&#x000A;        System.out.print( "\t" + flight.getSeatsMax() );&#x000A;        System.out.print( "\t" + flight.getSeatsOccupied() );&#x000A;        System.out.println( "\t" + flight.getDepartureTime() );&#x000A;    }&#x000A;&#x000A;    System.out.println( "\nReturn" );&#x000A;    BapiRet2 returnStruct = flightList.getReturnData();&#x000A;    System.out.println( "\tMessage: " + returnStruct.getMessage() );&#x000A;    System.out.println( "\tNumber: " + returnStruct.getNumber() );&#x000A;    System.out.println( "\tType: " + returnStruct.getType() );&#x000A;    System.out.println( "\tId: " + returnStruct.getId() );&#x000A;}&#x000A;&#x000A;public static void main( String[] args ) {&#x000A;    new HibersapTest().showFlightList();&#x000A;}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="run-the-application"><a class="anchor" href="#run-the-application"></a>Run the application</h3>
+<div class="paragraph">
+<p>Build the project with maven on the command-line using <code>mvn compile</code> and run the main class, or run it directly from your IDE.</p>
+</div>
+<div class="paragraph">
+<p>Make sure the application can access the JCo native library.
+The folder in which the native lib file is located must be on the application&#8217;s library path.
+The library path is defined by the Java system property <code>java.library.path</code> which can be passed as a JVM option with the
+-D command line switch.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-Djava.library.path=/path/to/sapjco-native-lib/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When running from an IDE like IntelliJ or Eclipse, you can add the JVM option by editing the run configuration.
+When running from the command line you can directly add it to the <code>java</code> command.</p>
+</div>
+<div class="paragraph">
+<p>In the example, we are looking for all flights from Frankfurt to Berlin.
+The result should look like follows, in this example, there were two flights found.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">AirlineId: DE&#x000A;FromCity: Frankfurt&#x000A;ToCountryKey: DE&#x000A;ToCity: Berlin&#x000A;AirlineCarrier:&#x000A;Afternoon: false&#x000A;MaxRead: 10&#x000A;&#x000A;FlightData&#x000A;	FRA  SXF  LH  2402  220  191  Thu Dec 30 10:30:00 CET 2010&#x000A;	FRA  SXF  LH  2402  220  207  Fri Dec 31 10:30:00 CET 2010&#x000A;&#x000A;Return&#x000A;	Message:&#x000A;	Number: 000&#x000A;	Type: S&#x000A;	Id:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If there were no flights found which is usually the case when you didn&#8217;t create test data in SAP yet,
+SAP will return something like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Return&#x000A;	Message: No corresponding flights found&#x000A;	Number: 150&#x000A;	Type: E&#x000A;	Id: BC_BOR</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Further examples can be found in the <a href="https://github.com/hibersap">Hibersap Github repository</a>,
+including a Java EE application using Hibersap with the <a href="https://sourceforge.net/p/cuckoo-ra/home">Cuckoo Resource Adapter for SAP</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="row" style="max-width: 100%">
+<hr>
+<div class="large-6 columns">
+<p style="margin-bottom: .5em; font-size: .75em">
+&copy; 2008-2015 akquinet tech@spree GmbH
+</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li>
+<a href="http://hibersap.github.io/">Home</a>
+</li>
+</ul>
+</div>
+</footer>
+<script>
+document.write('<script src=' + ('__proto__' in {} ? 'http://hibersap.github.io/javascripts/vendor/zepto' : 'http://hibersap.github.io/javascripts/vendor/jquery') + '.js><\/script>')
+</script>
+<script src="http://hibersap.github.io/javascripts/foundation/foundation.js"></script>
+<script src="http://hibersap.github.io/javascripts/foundation/foundation.topbar.js"></script>
+<script>
+$(document).foundation()
+</script>
+<script>
+hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
