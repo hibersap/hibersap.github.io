@@ -59,11 +59,10 @@
       %p(style='margin-bottom: .5em; font-size: .75em')
         &copy; 2008-#{Date.today.year} #{site.org}
     .large-6.columns
-      %ul.inline-list.right
-        %li
-          %a{:href=>"#{site.base_url}/"} Home
-        -#%li
-        -#  %a{:href=>"#{site.base_url}/blog"} Blog
+      %p(style='margin-bottom: .5em; font-size: .75em')
+        %ul.inline-list.right
+          %li
+            %a{:href=>"#{site.base_url}/"} Home
   %script
     document.write('<script src=' + ('__proto__' in {} ? '#{site.base_url}/javascripts/vendor/zepto' : '#{site.base_url}/javascripts/vendor/jquery') + '.js><\/script>')
   %script{:src=>"#{site.base_url}/javascripts/foundation/foundation.js"}

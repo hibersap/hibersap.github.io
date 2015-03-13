@@ -1,7 +1,6 @@
 name: Hibersap
 title: Hibersap home
-org: akquinet tech@spree GmbH
-base_url: ''
+org: akquinet AG
 
 interpolate: false
 haml:
@@ -20,7 +19,7 @@ asciidoctor:
 
 profiles:
   production:
-    base_url: http://hibersap.github.io/
+    base_url: http://hibersap.github.io
     deploy:
       host: github_pages
       branch: master
