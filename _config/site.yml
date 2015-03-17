@@ -19,7 +19,7 @@ asciidoctor:
 
 profiles:
   production:
-    base_url: http://hibersap.github.io
+    base_url: http://hibersap.org
     deploy:
       host: github_pages
       branch: master
