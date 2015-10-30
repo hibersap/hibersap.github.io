@@ -262,8 +262,8 @@ initializing the corresponding fields:
 public FlightListBapi(String fromCountryKey,
                         String fromCity,
                         String toCountryKey,
-                        String airlineCarrier,
                         String toCity,
+                        String airlineCarrier,
                         boolean afternoon,
                         int maxRead) {
 
