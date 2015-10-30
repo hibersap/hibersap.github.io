@@ -439,9 +439,9 @@ This means, you need to adopt the values to your specific SAP system and user ac
       <property name="jco.client.sysnr" value="00" />
       <property name="jco.destination.pool_capacity" value="5" />
     </properties>
-    <annotatedClasses>
-      <class>org.hibersap.examples.flightlist.FlightListBapi</class>
-    </annotatedClasses>
+    <annotated-classes>
+      <annotated-class>org.hibersap.examples.flightlist.FlightListBapi</annotated-class>
+    </annotated-classes>
   </session-manager>
 </hibersap>
 ----
