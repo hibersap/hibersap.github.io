@@ -7,6 +7,7 @@ ifdef::env-github[:idprefix: user-content-]
 :idseparator: -
 :source-language: java
 :language: {source-language}
+:prewrap!:
 
 
 == Get Help

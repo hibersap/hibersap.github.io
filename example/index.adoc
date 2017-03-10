@@ -7,8 +7,8 @@ ifdef::env-github[:idprefix: user-content-]
 :idseparator: -
 :source-language: java
 :language: {source-language}
-:sapjco-version: 3.0.12
-:hibersap-version: 1.2.0
+:sapjco-version: 3.0.15
+:hibersap-version: 1.3.0
 :url-sapjco-download: http://service.sap.com/connectors
 
 == Step by step example
@@ -350,7 +350,7 @@ The second class we need to implement is a Java class that Hibersap will map to 
 table parameter FLIGHTLIST, which in our example is simply called `Flight`.
 The table FLIGHTLIST will be filled by SAP with the flight information matching our request.
 
-[source,java]
+[source,java,options="nowrap"]
 ----
 package org.hibersap.examples.flightlist;
 
@@ -428,7 +428,7 @@ This means, you need to adopt the values to your specific SAP system and user ac
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
-<hibersap xmlns="urn:hibersap:hibersap-configuration:1.0">
+<hibersap xmlns="urn:hibersap:hibersap-configuration:1.1">
   <session-manager name="A12">
     <properties>
       <property name="jco.client.client" value="800" />
