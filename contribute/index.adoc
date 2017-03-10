@@ -145,5 +145,5 @@ $ rake gen
 Deploy to GitHub pages:
 
 ----
-$ awestruct -P production -g --deploy
+$ rake deploy
 ----

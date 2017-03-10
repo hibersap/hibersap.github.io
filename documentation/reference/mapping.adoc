@@ -60,7 +60,9 @@ public class BapiRet2 {
 
 ABAP tables are lists of complex parameters. As such they are mapped to a Java array or a `java.util.Collection` field.
 Hibersap again needs to know the name of the ABAP parameter as provided by the `@Parameter` annotation and its type as provided by the `@Table` annotation.
-It is a special characteristic of table parameters in ABAP that they can be used as import parameters as well as export parameters.
+It is a special characteristic of table parameters in ABAP that they import and export data in both directions.
+
+An import or export parameter can also be a table, in which case the parameter needs to be annotated with `@Import` or `@Export` and `@Parameter(..., type = ParameterType.TABLE_STRUCTURE)`.
 
 Tables that import data to the function module are filled by the Java application, Hibersap will use the application-provided array or collection to populate the table.
 Tables that export data from the function module will be read by Hibersap and copied to the corresponding array or collection.
@@ -93,7 +95,8 @@ The following list shows an overview of the Hibersap annotations.
 `*@Parameter*`::
     Maps a field to a parameter of the RFM's interface.
     `value`::: The parameter's name as defined by the RFM.
-    `type`::: The parameter's type, either `ParamType.SIMPLE` for a scalar type or `ParamType.STRUCTURE` for complex types. Default: `SIMPLE`.
+    `type`::: The parameter's type, `ParamType.SIMPLE` for a scalar type, `ParamType.STRUCTURE` for complex types, `ParamType.TABLE_STRUCTURE` for table types. Default: `SIMPLE`. Table
+    parameters don't need to specify this.
 
 `*@Import*`::
     Defines a field annotated with `@Parameter` to be an import parameter.

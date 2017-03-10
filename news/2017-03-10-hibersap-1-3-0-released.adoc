@@ -1,0 +1,38 @@
+= Hibersap 1.3.0 released
+Carsten Erker
+2017-03-10
+
+We are happy to announce the Hibersap 1.3.0 release!
+
+The artifacts for the new Hibersap version can be found in Maven central.
+
+Hibersap now supports deep structures / tables in import and export parameters! Also, we introduced a workaround for the runtime file name check problem in the latest SAP JCo versions.
+
+pass::[more]
+
+Here are the changes for Hibersap 1.3.0:
+
+*Enhancement*
+
+[link:https://github.com/hibersap/hibersap/issues/14[14]] - Support deep Structure Parameters (thanks to link:https://github.com/lyca[lyca])
+
+[link:https://github.com/hibersap/hibersap/issues/26[26]] - Change dependency to SAP JCo 3 to work with newer JCo versions
+
+[link:https://github.com/hibersap/hibersap/issues/24[24]] - Change class mappings from class to fqn-String)
+
+[link:https://github.com/hibersap/hibersap/issues/15[15]] - Log java.library.path
+
+
+*Bug*
+
+[link:https://github.com/hibersap/hibersap/issues/22[22]] - NPE in JCAMapper
+
+
+*Task*
+
+[link:https://github.com/hibersap/hibersap/issues/27[27]] - Update dependencies
+
+
+For details see the link:https://github.com/hibersap/hibersap/issues?q=milestone%3Av1.3.0+[Hibersap issue tracker]
+
+
