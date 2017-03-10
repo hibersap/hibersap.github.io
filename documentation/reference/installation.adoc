@@ -71,7 +71,9 @@ from the repository which would lead to runtime errors.
 
 [subs="+attributes"]
 ----
-mvn install:install-file -DgroupId=org.hibersap -DartifactId=` -Dversion={sapjco-version}
+mvn install:install-file -DgroupId=org.hibersap \\
+                         -DartifactId=com.sap.conn.jco.sapjco3 \\
+                         -Dversion={sapjco-version} \\
                          -Dpackaging=jar -Dfile=sapjco.jar
 ----
 

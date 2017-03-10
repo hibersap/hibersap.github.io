@@ -95,7 +95,7 @@ The following list shows an overview of the Hibersap annotations.
 `*@Parameter*`::
     Maps a field to a parameter of the RFM's interface.
     `value`::: The parameter's name as defined by the RFM.
-    `type`::: The parameter's type, `ParamType.SIMPLE` for a scalar type, `ParamType.STRUCTURE` for complex types, `ParamType.TABLE_STRUCTURE` for table types. Default: `SIMPLE`. Table
+    `type`::: The parameter's type, `ParameterType.SIMPLE` for a scalar type, `ParameterType.STRUCTURE` for complex types, `ParameterType.TABLE_STRUCTURE` for table types. Default: `SIMPLE`. Table
     parameters don't need to specify this.
 
 `*@Import*`::
@@ -105,7 +105,7 @@ The following list shows an overview of the Hibersap annotations.
     Defines a field annotated with `@Parameter` to be an export parameter.
 
 `*@Table*`::
-    Defines a field annotated with `@Parameter` to be a table parameter.
+    Defines a field annotated with `@Parameter` to be a table parameter. Since a table parameter always reflects an ABAP table type, the `@Parameter.type` value does not need to be explicitly set.
 
 `*@Convert*`::
     The parameter's data type will be converted by the given converter, i.e. the Java field's data type may differ from the JCo data type conversion pattern.
