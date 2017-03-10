@@ -547,7 +547,9 @@ from the repository which would lead to runtime errors.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>mvn install:install-file -DgroupId=org.hibersap -DartifactId=` -Dversion={sapjco-version}
+<pre>mvn install:install-file -DgroupId=org.hibersap \\
+                         -DartifactId=com.sap.conn.jco.sapjco3 \\
+                         -Dversion={sapjco-version} \\
                          -Dpackaging=jar -Dfile=sapjco.jar</pre>
 </div>
 </div>
@@ -661,7 +663,7 @@ One exception to this is the dependency to the SAP Java Connector (JCo) which yo
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-10 11:34:55 CET
+Last updated 2017-03-10 13:48:21 CET
 </div>
 </div>
 </body>
