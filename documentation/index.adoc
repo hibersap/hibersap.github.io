@@ -66,7 +66,7 @@ link:http://de.slideshare.net/hwilming/sap-integration-aufjavaeeart[Integrating 
 link:http://de.slideshare.net/hwilming/red-hat-jboss-fuse-sapintegrationv06[SAP Integration with Red Hat JBoss Technologies]::
   Presentation held by link:https://github.com/spagop[Serge Pagop] and link:https://github.com/cerker[Carsten Erker] on October 2nd, 2013 at RedHat Partner Conference, Madrid
 
-link:http://www.sigs-datacom.de/fileadmin/user_upload/zeitschriften/js/2014/06/erker_fink_JS_06_14_Bp6d.pdf[Gut zugeschnitten - Alternativen für die Integration von SAP-Systemen mit Java EE]::
+link:https://www.sigs-datacom.de/uploads/tx_dmjournals/erker_fink_JS_06_14_Bp6d.pdf[Gut zugeschnitten - Alternativen für die Integration von SAP-Systemen mit Java EE]::
   Article in JavaSpektrum 6/2014 by link:https://github.com/tnfink[Torsten Fink] and link:https://github.com/cerker[Carsten Erker] (in German)
 
 link:https://jaxenter.de/Java-Magazin/Java-Magazin-910-166101[Hibersap - JCo with Pleasure]::

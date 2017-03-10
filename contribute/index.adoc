@@ -95,7 +95,7 @@ See also: http://help.github.com/send-pull-requests/
 
 You are also welcome to contribute to the Hibersap documentation.
 To submit a pull request, please follow the steps above with a different GitHub repository:
-link:https://github.com/hibersap/hibersap.org[].
+link:https://github.com/hibersap/hibersap.github.io[].
 The repository contains the web site including the Hibersap Reference Guide.
 
 The web site is built using link:http://awestruct.org[Awestruct] which itself builds on the Ruby programming language.
@@ -103,6 +103,8 @@ Most of the pages are in AsciiDoc format.
 link:http://asciidoctor.org[Asciidoc] is used to process the AsciiDoc files inside Awestruct.
 As a CSS framework link:http://foundation.zurb.com/[Zurb Foundation] is used.
 
+Changes must only be made to the `develop` branch!
+The master branch contains the web site after the build.
 
 ==== Build the web site
 
@@ -122,10 +124,16 @@ The default task that will be run by the rake build is `preview`.
 This starts up a web server with the site and you can open it in the browser with the following URL:
 link:http://localhost:4242/[]
 
-To clean up and run the preview pass `--force`:
+To run the build and start a web server for development purposes:
 
 ----
-$ rake preview --force
+$ rake preview
+----
+
+To run clean up and run the preview :
+
+----
+$ rake clean preview
 ----
 
 To just run the build without starting a web server:
