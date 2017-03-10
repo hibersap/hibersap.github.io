@@ -1,6 +1,5 @@
 = Step by step example
 :icons: font
-:toc: right
 :page-layout: base
 :idprefix:
 ifdef::env-github[:idprefix: user-content-]
@@ -31,7 +30,7 @@ In the example we assume you use version {sapjco-version}, if not so, replace to
 
 [source,subs="attributes"]
 ----
-mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion={sapjco-version} \\
+mvn install:install-file -DgroupId=org.hibersap -DartifactId=com.sap.conn.jco.sapjco3 -Dversion={sapjco-version} \\
                          -Dpackaging=jar -Dfile=/path/to/sapjco3.jar
 ----
 
@@ -62,7 +61,7 @@ Create a Maven project with the following dependencies:
         </dependency>
         <dependency>
             <groupId>org.hibersap</groupId>
-            <artifactId>sapjco3</artifactId>
+            <artifactId>com.sap.conn.jco.sapjco3</artifactId>
             <version>{sapjco-version}</version>
         </dependency>
     </dependencies>

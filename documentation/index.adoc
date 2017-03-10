@@ -1,6 +1,5 @@
 = Hibersap Documentation
 :icons: font
-:toc: right
 :page-layout: base
 :idprefix:
 ifdef::env-github[:idprefix: user-content-]

@@ -31,7 +31,7 @@ The following sections show Hibersap's runtime dependencies and their version as
 ===== hibersap-core Dependencies
 
 * Apache Commons Lang: commons-lang:commons-lang:2.6
-* Apache Commons Logging: commons-logging:commons-logging:1.1.3
+* Apache Commons Logging: commons-logging:commons-logging:1.2
 
 ===== hibersap-jco Dependencies
 
@@ -63,9 +63,15 @@ To install it to your local Maven repository issue the following Maven command o
 Since JCo is defined as an optional dependency in Hibersap, you can choose any values for groupId, artifactId and version.
 You make sure your project's pom.xml defines the dependency with the matching coordinates.
 
+Note: The artifactId `com.sap.conn.jco.sapjco3` is a trick to work around a runtime check in the latest versions of
+the SAP JCo library which enforces the name of the loaded jar file to either equal "sapjco3.jar" (or to start with
+"com.sap.conn.jco").
+Without this, Maven would rename the jar file to something like "sapjco3.jar-{sapjco-version}.jar" when copying it
+from the repository which would lead to runtime errors.
+
 [subs="+attributes"]
 ----
-mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion={sapjco-version}
+mvn install:install-file -DgroupId=org.hibersap -DartifactId=` -Dversion={sapjco-version}
                          -Dpackaging=jar -Dfile=sapjco.jar
 ----
 
@@ -133,7 +139,7 @@ If you use Hibersap directly with JCo you need to declare the following dependen
 </dependency>
 <dependency>
     <groupId>org.hibersap</groupId>
-    <artifactId>hibersap-sapjco3</artifactId>
+    <artifactId>com.sap.conn.jco.sapjco3</artifactId>
     <version>{sapjco-version}</version>
     <type>jar</type>
 </dependency>
