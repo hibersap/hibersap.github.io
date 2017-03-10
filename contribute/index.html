@@ -174,7 +174,7 @@ Finally, press the Send Pull Request button and you are finished.</p>
 <div class="paragraph">
 <p>You are also welcome to contribute to the Hibersap documentation.
 To submit a pull request, please follow the steps above with a different GitHub repository:
-<a href="https://github.com/hibersap/hibersap.org" class="bare">https://github.com/hibersap/hibersap.org</a>.
+<a href="https://github.com/hibersap/hibersap.github.io" class="bare">https://github.com/hibersap/hibersap.github.io</a>.
 The repository contains the web site including the Hibersap Reference Guide.</p>
 </div>
 <div class="paragraph">
@@ -182,6 +182,10 @@ The repository contains the web site including the Hibersap Reference Guide.</p>
 Most of the pages are in AsciiDoc format.
 <a href="http://asciidoctor.org">Asciidoc</a> is used to process the AsciiDoc files inside Awestruct.
 As a CSS framework <a href="http://foundation.zurb.com/">Zurb Foundation</a> is used.</p>
+</div>
+<div class="paragraph">
+<p>Changes must only be made to the <code>develop</code> branch!
+The master branch contains the web site after the build.</p>
 </div>
 <div class="sect3">
 <h4 id="build-the-web-site"><a class="anchor" href="#build-the-web-site"></a>Build the web site</h4>
@@ -207,11 +211,19 @@ This starts up a web server with the site and you can open it in the browser wit
 <a href="http://localhost:4242/" class="bare">http://localhost:4242/</a></p>
 </div>
 <div class="paragraph">
-<p>To clean up and run the preview pass <code>--force</code>:</p>
+<p>To run the build and start a web server for development purposes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ rake preview --force</pre>
+<pre>$ rake preview</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run clean up and run the preview :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rake clean preview</pre>
 </div>
 </div>
 <div class="paragraph">

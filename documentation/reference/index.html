@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="generator" content="Asciidoctor 1.5.4">
 <meta name="description" content="This documentation describes the Hibersap library.">
 <meta name="keywords" content="Hibersap, Java, JavaEE, SAP, JCo, JCA, Cuckoo, reference, learn, how to">
 <title>Hibersap Reference Documentation</title>
@@ -19,6 +19,7 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -53,7 +54,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -65,6 +66,7 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
+body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -119,16 +121,13 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-*:not(pre)>code.nobreak{word-wrap:normal}
-*:not(pre)>code.nowrap{white-space:nowrap}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
-em em{font-style:normal}
-strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -419,7 +418,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <style>
 /* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
 /*pre.CodeRay {background-color:#f7f7f8;}*/
@@ -574,7 +573,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="introduction"><a class="anchor" href="#introduction"></a><a class="link" href="#introduction">1. Introduction</a></h2>
+<h2 id="introduction"><a class="anchor" href="#introduction"></a>1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Hibersap helps developers of Java applications to call business logic in SAP ERP.
@@ -615,10 +614,10 @@ In a managed environment calls to SAP functions may even be part of distributed 
 </div>
 </div>
 <div class="sect1">
-<h2 id="installation"><a class="anchor" href="#installation"></a><a class="link" href="#installation">2. Installation</a></h2>
+<h2 id="installation"><a class="anchor" href="#installation"></a>2. Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="the-hibersap-libraries"><a class="anchor" href="#the-hibersap-libraries"></a><a class="link" href="#the-hibersap-libraries">2.1. The Hibersap libraries</a></h3>
+<h3 id="the-hibersap-libraries"><a class="anchor" href="#the-hibersap-libraries"></a>2.1. The Hibersap libraries</h3>
 <div class="paragraph">
 <p>The Hibersap framework is divided into the following libraries:</p>
 </div>
@@ -649,7 +648,7 @@ See section <a href="#hibersap-ejb-tools">Hibersap EJB Tools</a> for more inform
 </div>
 </div>
 <div class="sect2">
-<h3 id="third-party-libraries"><a class="anchor" href="#third-party-libraries"></a><a class="link" href="#third-party-libraries">2.2. Third Party Libraries</a></h3>
+<h3 id="third-party-libraries"><a class="anchor" href="#third-party-libraries"></a>2.2. Third Party Libraries</h3>
 <div class="paragraph">
 <p>Hibersap has a few dependencies on third-party libraries, which you need to add to your application&#8217;s classpath. The easiest way to achieve this is to build your projects with Maven.
 See section <a href="#building-hibersap-applications-with-maven">Building Hibersap Applications with Maven</a>.</p>
@@ -659,27 +658,27 @@ See section <a href="#building-hibersap-applications-with-maven">Building Hibers
 or a JCA compatible resource adapter.</p>
 </div>
 <div class="sect3">
-<h4 id="hibersap-dependencies"><a class="anchor" href="#hibersap-dependencies"></a><a class="link" href="#hibersap-dependencies">2.2.1. Hibersap Dependencies</a></h4>
+<h4 id="hibersap-dependencies"><a class="anchor" href="#hibersap-dependencies"></a>2.2.1. Hibersap Dependencies</h4>
 <div class="paragraph">
 <p>When using Maven, it will download the dependencies automatically during the build.
 Otherwise, you need to add dependencies manually.
 The following sections show Hibersap&#8217;s runtime dependencies and their version as Maven coordinates, so they can easily be downloaded from the Maven central repository.</p>
 </div>
 <div class="sect4">
-<h5 id="hibersap-core-dependencies"><a class="anchor" href="#hibersap-core-dependencies"></a><a class="link" href="#hibersap-core-dependencies">hibersap-core Dependencies</a></h5>
+<h5 id="hibersap-core-dependencies"><a class="anchor" href="#hibersap-core-dependencies"></a>hibersap-core Dependencies</h5>
 <div class="ulist">
 <ul>
 <li>
 <p>Apache Commons Lang: commons-lang:commons-lang:2.6</p>
 </li>
 <li>
-<p>Apache Commons Logging: commons-logging:commons-logging:1.1.3</p>
+<p>Apache Commons Logging: commons-logging:commons-logging:1.2</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="hibersap-jco-dependencies"><a class="anchor" href="#hibersap-jco-dependencies"></a><a class="link" href="#hibersap-jco-dependencies">hibersap-jco Dependencies</a></h5>
+<h5 id="hibersap-jco-dependencies"><a class="anchor" href="#hibersap-jco-dependencies"></a>hibersap-jco Dependencies</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -692,7 +691,7 @@ The following sections show Hibersap&#8217;s runtime dependencies and their vers
 </div>
 </div>
 <div class="sect4">
-<h5 id="hibersap-jca-dependencies"><a class="anchor" href="#hibersap-jca-dependencies"></a><a class="link" href="#hibersap-jca-dependencies">hibersap-jca Dependencies</a></h5>
+<h5 id="hibersap-jca-dependencies"><a class="anchor" href="#hibersap-jca-dependencies"></a>hibersap-jca Dependencies</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -705,7 +704,7 @@ The following sections show Hibersap&#8217;s runtime dependencies and their vers
 </div>
 </div>
 <div class="sect4">
-<h5 id="hibersap-ejb-dependencies"><a class="anchor" href="#hibersap-ejb-dependencies"></a><a class="link" href="#hibersap-ejb-dependencies">hibersap-ejb Dependencies</a></h5>
+<h5 id="hibersap-ejb-dependencies"><a class="anchor" href="#hibersap-ejb-dependencies"></a>hibersap-ejb Dependencies</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -716,7 +715,7 @@ The following sections show Hibersap&#8217;s runtime dependencies and their vers
 </div>
 </div>
 <div class="sect3">
-<h4 id="the-sap-java-connector-jco"><a class="anchor" href="#the-sap-java-connector-jco"></a><a class="link" href="#the-sap-java-connector-jco">2.2.2. The SAP Java Connector (JCo)</a></h4>
+<h4 id="the-sap-java-connector-jco"><a class="anchor" href="#the-sap-java-connector-jco"></a>2.2.2. The SAP Java Connector (JCo)</h4>
 <div class="paragraph">
 <p>The SAP JCo library is provided by SAP to their customers and comes with its own (commercial) license.
 Thus it can not be provided by public Maven repositories or download sites.
@@ -733,9 +732,16 @@ You then need to install the sapjco3.jar into your local Maven repository or dep
 Since JCo is defined as an optional dependency in Hibersap, you can choose any values for groupId, artifactId and version.
 You make sure your project&#8217;s pom.xml defines the dependency with the matching coordinates.</p>
 </div>
+<div class="paragraph">
+<p>Note: The artifactId <code>com.sap.conn.jco.sapjco3</code> is a trick to work around a runtime check in the latest versions of
+the SAP JCo library which enforces the name of the loaded jar file to either equal "sapjco3.jar" (or to start with
+"com.sap.conn.jco").
+Without this, Maven would rename the jar file to something like "sapjco3.jar-3.0.15.jar" when copying it
+from the repository which would lead to runtime errors.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion=3.0.15
+<pre>mvn install:install-file -DgroupId=org.hibersap -DartifactId=` -Dversion=3.0.15
                          -Dpackaging=jar -Dfile=sapjco.jar</pre>
 </div>
 </div>
@@ -763,7 +769,7 @@ Additionally, the JCo jar file must be on the application&#8217;s classpath.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the-cuckoo-resource-adapter-for-sap"><a class="anchor" href="#the-cuckoo-resource-adapter-for-sap"></a><a class="link" href="#the-cuckoo-resource-adapter-for-sap">2.3. The Cuckoo Resource Adapter for SAP</a></h3>
+<h3 id="the-cuckoo-resource-adapter-for-sap"><a class="anchor" href="#the-cuckoo-resource-adapter-for-sap"></a>2.3. The Cuckoo Resource Adapter for SAP</h3>
 <div class="paragraph">
 <p>If you are using Hibersap with a resource adapter in a managed environment, the preferred choice is the Cuckoo Resource Adapter for SAP.
 The project&#8217;s web site can be found under <a href="https://sourceforge.net/p/cuckoo-ra/home" class="bare">https://sourceforge.net/p/cuckoo-ra/home</a>.</p>
@@ -773,7 +779,7 @@ The project&#8217;s web site can be found under <a href="https://sourceforge.net
 </div>
 </div>
 <div class="sect2">
-<h3 id="other-jca-compatible-resource-adapters"><a class="anchor" href="#other-jca-compatible-resource-adapters"></a><a class="link" href="#other-jca-compatible-resource-adapters">2.4. Other JCA compatible Resource Adapters</a></h3>
+<h3 id="other-jca-compatible-resource-adapters"><a class="anchor" href="#other-jca-compatible-resource-adapters"></a>2.4. Other JCA compatible Resource Adapters</h3>
 <div class="paragraph">
 <p>Being the only open source resource adapters for SAP, Hibersap was tested with Cuckoo as well as the SAP BAPI JCA Adapter (see <a href="http://sourceforge.net/projects/sapbapijcaadapt" class="bare">http://sourceforge.net/projects/sapbapijcaadapt</a>).
 Nevertheless, commercial alternatives do exist. We would be glad to get your feedback when using one of these.
@@ -790,7 +796,7 @@ Hibersap implements ConnectionSpecFactories for Cuckoo as well as the SAP BAPI J
 </div>
 </div>
 <div class="sect2">
-<h3 id="building-hibersap-applications-with-maven"><a class="anchor" href="#building-hibersap-applications-with-maven"></a><a class="link" href="#building-hibersap-applications-with-maven">2.5. Building Hibersap Applications with Maven</a></h3>
+<h3 id="building-hibersap-applications-with-maven"><a class="anchor" href="#building-hibersap-applications-with-maven"></a>2.5. Building Hibersap Applications with Maven</h3>
 <div class="paragraph">
 <p>The Hibersap libraries are deployed to the Maven Central repository, so the dependencies are downloaded by Maven when you specify them in your project.</p>
 </div>
@@ -816,7 +822,7 @@ Hibersap implements ConnectionSpecFactories for Cuckoo as well as the SAP BAPI J
 <span class="tag">&lt;/dependency&gt;</span>
 <span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.hibersap<span class="tag">&lt;/groupId&gt;</span>
-    <span class="tag">&lt;artifactId&gt;</span>hibersap-sapjco3<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>com.sap.conn.jco.sapjco3<span class="tag">&lt;/artifactId&gt;</span>
     <span class="tag">&lt;version&gt;</span>3.0.15<span class="tag">&lt;/version&gt;</span>
     <span class="tag">&lt;type&gt;</span>jar<span class="tag">&lt;/type&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
@@ -849,7 +855,7 @@ One exception to this is the dependency to the SAP Java Connector (JCo) which yo
 </div>
 </div>
 <div class="sect1">
-<h2 id="configuration"><a class="anchor" href="#configuration"></a><a class="link" href="#configuration">3. Configuration</a></h2>
+<h2 id="configuration"><a class="anchor" href="#configuration"></a>3. Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Hibersap configuration consists of a set of properties.
@@ -873,7 +879,7 @@ When creating a SessionManager, configuration can be set or overwritten using pr
 <p>Using XML file configuration is usually the easiest way to configure Hibersap.</p>
 </div>
 <div class="sect2">
-<h3 id="xml-file-configuration"><a class="anchor" href="#xml-file-configuration"></a><a class="link" href="#xml-file-configuration">3.1. XML file configuration</a></h3>
+<h3 id="xml-file-configuration"><a class="anchor" href="#xml-file-configuration"></a>3.1. XML file configuration</h3>
 <div class="paragraph">
 <p>The format of the XML configuration file is inspired by JPA&#8217;s persistence.xml.
 If you have to access different SAP systems, you can define more than one SessionManager by multiplying the session-manager XML element.</p>
@@ -1000,7 +1006,7 @@ SessionManager sessionManager = configuration.buildSessionManager();</code></pre
 </div>
 </div>
 <div class="sect2">
-<h3 id="programmatic-configuration"><a class="anchor" href="#programmatic-configuration"></a><a class="link" href="#programmatic-configuration">3.2. Programmatic configuration</a></h3>
+<h3 id="programmatic-configuration"><a class="anchor" href="#programmatic-configuration"></a>3.2. Programmatic configuration</h3>
 <div class="paragraph">
 <p>After creating a <code>Configuration</code> object which will be used to build the <code>SessionManager</code>, configuration can be set or overwritten programmatically.</p>
 </div>
@@ -1033,7 +1039,7 @@ SessionManager sessionManager = configuration.buildSessionManager();</code></pre
 </div>
 </div>
 <div class="sect1">
-<h2 id="parameter-mapping"><a class="anchor" href="#parameter-mapping"></a><a class="link" href="#parameter-mapping">4. Parameter Mapping</a></h2>
+<h2 id="parameter-mapping"><a class="anchor" href="#parameter-mapping"></a>4. Parameter Mapping</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The main task of Hibersap is to map Remote Function Modules (RFMs)&#8201;&#8212;&#8201;which are defined in SAP ERP&#8201;&#8212;&#8201;to Java classes.
@@ -1044,7 +1050,7 @@ This section provides detailed information on the Hibersap annotations and on ho
 <p>For a complete example of how to define Hibersap classes and mappings, see the <a href="/getstarted">Hibersap Get Started Guide</a> or checkout the Hibersap examples code from GitHub.</p>
 </div>
 <div class="sect2">
-<h3 id="hibersap-annotations"><a class="anchor" href="#hibersap-annotations"></a><a class="link" href="#hibersap-annotations">4.1. Hibersap Annotations</a></h3>
+<h3 id="hibersap-annotations"><a class="anchor" href="#hibersap-annotations"></a>4.1. Hibersap Annotations</h3>
 <div class="paragraph">
 <p>Since Hibersap maps SAP Remote Function Modules to plain Java classes, an application must define one class for each function module that acts as a kind of proxy.
 This class is called a BAPI class and has to be annotated with the <code>@Bapi</code> annotation.
@@ -1238,9 +1244,9 @@ The return structure&#8217;s field <code>TYPE</code> is compared to the message 
 </div>
 </div>
 <div class="sect2">
-<h3 id="type-conversion"><a class="anchor" href="#type-conversion"></a><a class="link" href="#type-conversion">4.2. Type Conversion</a></h3>
+<h3 id="type-conversion"><a class="anchor" href="#type-conversion"></a>4.2. Type Conversion</h3>
 <div class="sect3">
-<h4 id="default-conversion-scheme"><a class="anchor" href="#default-conversion-scheme"></a><a class="link" href="#default-conversion-scheme">4.2.1. Default Conversion scheme</a></h4>
+<h4 id="default-conversion-scheme"><a class="anchor" href="#default-conversion-scheme"></a>4.2.1. Default Conversion scheme</h4>
 <div class="paragraph">
 <p>The Java type of each simple field is closely related to the ABAP field&#8217;s data type.
 When using Hibersap with JCo, it relies on the Java Connector&#8217;s conversion scheme as shown in the following table.</p>
@@ -1317,7 +1323,7 @@ Most Resource Adapters for SAP use JCo, so the above type conversion scheme will
 </div>
 </div>
 <div class="sect3">
-<h4 id="custom-converters"><a class="anchor" href="#custom-converters"></a><a class="link" href="#custom-converters">4.2.2. Custom Converters</a></h4>
+<h4 id="custom-converters"><a class="anchor" href="#custom-converters"></a>4.2.2. Custom Converters</h4>
 <div class="paragraph">
 <p>Custom converters allow for converting a parameter&#8217;s data type to any Java type and vice versa.
 A common example for a custom converter is one that converts boolean values.
@@ -1379,7 +1385,7 @@ With a Hibersap converter it is possible to map an ABAP "boolean" parameter to a
 </div>
 </div>
 <div class="sect2">
-<h3 id="bean-validation"><a class="anchor" href="#bean-validation"></a><a class="link" href="#bean-validation">4.3. Bean Validation</a></h3>
+<h3 id="bean-validation"><a class="anchor" href="#bean-validation"></a>4.3. Bean Validation</h3>
 <div class="paragraph">
 <p>Java Bean Validation (JSR 303) is a Java EE standard which defines an API and metadata model (in the form of Java annotations) to validate Java Beans and their attributes. If a Bean Validation provider is on the classpath of your application, Hibersap will validate the BAPI and Structure classes each time before a function gets executed.</p>
 </div>
@@ -1440,10 +1446,10 @@ NONE
 </div>
 </div>
 <div class="sect1">
-<h2 id="calling-sap-functions"><a class="anchor" href="#calling-sap-functions"></a><a class="link" href="#calling-sap-functions">5. Calling SAP Functions</a></h2>
+<h2 id="calling-sap-functions"><a class="anchor" href="#calling-sap-functions"></a>5. Calling SAP Functions</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="building-a-sessionmanager"><a class="anchor" href="#building-a-sessionmanager"></a><a class="link" href="#building-a-sessionmanager">5.1. Building a SessionManager</a></h3>
+<h3 id="building-a-sessionmanager"><a class="anchor" href="#building-a-sessionmanager"></a>5.1. Building a SessionManager</h3>
 <div class="paragraph">
 <p>Chapter <a href="#configuration">Configuration</a> explains in detail how to configure Hibersap.
 The following code snippet assumes that there is the <code>/META-INF/hibersap.xml</code> configuration file defining a session manager named "A12" in the application&#8217;s classpath and shows how to build a <code>SessionManager</code> instance:</p>
@@ -1462,7 +1468,7 @@ In a stand-alone application the SessionManager might be simply passed around or
 </div>
 </div>
 <div class="sect2">
-<h3 id="calling-a-function-in-sap"><a class="anchor" href="#calling-a-function-in-sap"></a><a class="link" href="#calling-a-function-in-sap">5.2. Calling a function in SAP</a></h3>
+<h3 id="calling-a-function-in-sap"><a class="anchor" href="#calling-a-function-in-sap"></a>5.2. Calling a function in SAP</h3>
 <div class="paragraph">
 <p>Calling a remote function module in SAP is as easy as opening a new <code>Session</code> with the <code>SessionManager</code>, creating an instance of the BAPI class with the required parameters and passing it to the <code>Session.execute()</code> method.</p>
 </div>
@@ -1501,14 +1507,14 @@ Thus, a session should have a short lifetime (just like a database session) and 
 </div>
 </div>
 <div class="sect2">
-<h3 id="interceptors"><a class="anchor" href="#interceptors"></a><a class="link" href="#interceptors">5.3. Interceptors</a></h3>
+<h3 id="interceptors"><a class="anchor" href="#interceptors"></a>5.3. Interceptors</h3>
 <div class="paragraph">
 <p>There are two kind of interceptors that intercept calls to SAP function on different levels.
 Both interceptor types make it possible for applications to apply additional logic which is related to cross-cutting concerns like e.g. logging.
 Both interceptors are registered with a session manager in the Hibersap configuration and apply to all function calls using this session manager.</p>
 </div>
 <div class="sect3">
-<h4 id="bapi-interceptors"><a class="anchor" href="#bapi-interceptors"></a><a class="link" href="#bapi-interceptors">5.3.1. Bapi Interceptors</a></h4>
+<h4 id="bapi-interceptors"><a class="anchor" href="#bapi-interceptors"></a>5.3.1. Bapi Interceptors</h4>
 <div class="paragraph">
 <p>Bapi Interceptors implement the <code>org.hibersap.interceptor.BapiInterceptor</code> interface and are called before and after a function call has been executed.
 The interface defines the methods <code>beforeExecution( java.lang.Object )</code> and <code>afterExecution( java.lang.Object )</code>. As an argument, the Bapi object is passed to these methods.</p>
@@ -1519,7 +1525,7 @@ Applications may of course add their own Bapi Interceptors.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="execution-interceptors"><a class="anchor" href="#execution-interceptors"></a><a class="link" href="#execution-interceptors">5.3.2. Execution Interceptors</a></h4>
+<h4 id="execution-interceptors"><a class="anchor" href="#execution-interceptors"></a>5.3.2. Execution Interceptors</h4>
 <div class="paragraph">
 <p>Execution interceptors implement the <code>org.hibersap.interceptor.ExecutionInterceptor</code> interface and are also called before and after a function call has been executed.
 The interface defines the methods <code>beforeExecution( org.hibersap.mapping.model.BapiMapping, java.util.Map&lt;String, Object&gt; )</code> and <code>afterExecution( org.hibersap.mapping.model.BapiMapping, java.util.Map&lt;String, Object&gt; )</code>.
@@ -1566,7 +1572,7 @@ For scalar parameters values are of a simple Java type like numbers, dates or st
 </div>
 </div>
 <div class="sect1">
-<h2 id="transactions"><a class="anchor" href="#transactions"></a><a class="link" href="#transactions">6. Transactions</a></h2>
+<h2 id="transactions"><a class="anchor" href="#transactions"></a>6. Transactions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SAP ERP allows external callers of its function modules to control logical units of work (i.e. transactions).
@@ -1583,7 +1589,7 @@ Special care has to be taken in the ABAP code which should not call a COMMIT WOR
 Depending on the chosen interfacing technology, you can either handle your transactions manually (JCo and JCA) or use Container Managed Transactions (JCA only).</p>
 </div>
 <div class="sect3">
-<h4 id="manual-transaction-handling"><a class="anchor" href="#manual-transaction-handling"></a><a class="link" href="#manual-transaction-handling">6.1. Manual transaction handling</a></h4>
+<h4 id="manual-transaction-handling"><a class="anchor" href="#manual-transaction-handling"></a>6.1. Manual transaction handling</h4>
 <div class="paragraph">
 <p>The Hibersap Session has a method <code>beginTransaction()</code> which must be called when starting the transaction.
 <code>beginTransaction()</code> returns a <code>Transaction</code> object on which you can later call the methods <code>commit()</code> or <code>rollback()</code> to tell SAP to commit or rollback all changes made during the transaction.</p>
@@ -1617,7 +1623,7 @@ Transaction transaction = <span class="predefined-constant">null</span>;
 </div>
 </div>
 <div class="sect3">
-<h4 id="automatic-transaction-handling"><a class="anchor" href="#automatic-transaction-handling"></a><a class="link" href="#automatic-transaction-handling">6.2. Automatic transaction handling</a></h4>
+<h4 id="automatic-transaction-handling"><a class="anchor" href="#automatic-transaction-handling"></a>6.2. Automatic transaction handling</h4>
 <div class="paragraph">
 <p>Applications running in an application server and using EJBs and a Java EE compatible Resource Adapter can profit from the application server&#8217;s capability to automatically handle transactions.
 This is called Container Managed Transactions (CMT).</p>
@@ -1632,10 +1638,10 @@ This is called Container Managed Transactions (CMT).</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="authentification"><a class="anchor" href="#authentification"></a><a class="link" href="#authentification">7. Authentification</a></h2>
+<h2 id="authentification"><a class="anchor" href="#authentification"></a>7. Authentification</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="configured-user"><a class="anchor" href="#configured-user"></a><a class="link" href="#configured-user">7.1. Configured User</a></h3>
+<h3 id="configured-user"><a class="anchor" href="#configured-user"></a>7.1. Configured User</h3>
 <div class="paragraph">
 <p>The most common way to interact with a SAP system in enterprise applications is to use a central SAP user that is shared by all users of the application.
 Using this kind of authentication is a matter of configuration.
@@ -1644,7 +1650,7 @@ When using Hibersap with JCA, the credentials are usually defined in the resourc
 </div>
 </div>
 <div class="sect2">
-<h3 id="per-session-authentication"><a class="anchor" href="#per-session-authentication"></a><a class="link" href="#per-session-authentication">7.2. Per-session authentication</a></h3>
+<h3 id="per-session-authentication"><a class="anchor" href="#per-session-authentication"></a>7.2. Per-session authentication</h3>
 <div class="paragraph">
 <p>If the application has to provide user credentials, e.g. when each application user logs on to the SAP system using his own SAP account, you can specify logon credentials for each Hibersap session you create.</p>
 </div>
@@ -1735,7 +1741,7 @@ The Cuckoo Resource Adapter defines almost all possible JCo properties and passe
 </div>
 </div>
 <div class="sect2">
-<h3 id="single-sign-on"><a class="anchor" href="#single-sign-on"></a><a class="link" href="#single-sign-on">7.3. Single sign-on</a></h3>
+<h3 id="single-sign-on"><a class="anchor" href="#single-sign-on"></a>7.3. Single sign-on</h3>
 <div class="paragraph">
 <p>A special case of per-session authentication is the use of single sign-on.
 In a SAP environment it is common to use SAP Logon Tickets issued by SAP systems.
@@ -1746,14 +1752,14 @@ After obtaining this ticket it can be passed to the Hibersap session by setting 
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-ee-integration"><a class="anchor" href="#java-ee-integration"></a><a class="link" href="#java-ee-integration">8. Java EE Integration</a></h2>
+<h2 id="java-ee-integration"><a class="anchor" href="#java-ee-integration"></a>8. Java EE Integration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>When developing applications which run inside a Java EE application server and make use of Enterprise Java Beans (EJB), it is
 recommended using Hibersap in combination with a JCA compatible resource adapter. A resource adapter offers some important features which will be treated in this section.</p>
 </div>
 <div class="sect2">
-<h3 id="transaction-management"><a class="anchor" href="#transaction-management"></a><a class="link" href="#transaction-management">8.1. Transaction Management</a></h3>
+<h3 id="transaction-management"><a class="anchor" href="#transaction-management"></a>8.1. Transaction Management</h3>
 <div class="paragraph">
 <p>In an application server the JTA transaction manager handles transactions.
 In combination with EJBs and container managed transactions (CMT), the application code does not need to care about transaction demarcation because the container sets the transaction boundaries implicitly. This simplifies development and reduces the probability of errors.</p>
@@ -1769,7 +1775,7 @@ However, can be explicitly declared using the <code>@TransactionManagement</code
 The transaction semantics are further defined by the <code>@TransactionAttribute</code> annotation on the EJB class or the individual EJB methods where <code>TransactionAttributeType.REQUIRED</code> is a sensible default value.</p>
 </div>
 <div class="sect3">
-<h4 id="distributed-transactions"><a class="anchor" href="#distributed-transactions"></a><a class="link" href="#distributed-transactions">8.1.1. Distributed Transactions</a></h4>
+<h4 id="distributed-transactions"><a class="anchor" href="#distributed-transactions"></a>8.1.1. Distributed Transactions</h4>
 <div class="paragraph">
 <p>In an application it might be necessary or wanted to access SAP and other resources like a database and/or a JMS message queue in one unit of work making sure either every resource is committed in the case of success, or every resource is rolled back in case of an error. To accomplish this, Java EE supports distributed transactions through the JTA transaction manager.</p>
 </div>
@@ -1786,7 +1792,7 @@ However, as soon as there are two non-2PC-resources enlisting in the distributed
 </div>
 </div>
 <div class="sect2">
-<h3 id="security-management"><a class="anchor" href="#security-management"></a><a class="link" href="#security-management">8.2. Security Management</a></h3>
+<h3 id="security-management"><a class="anchor" href="#security-management"></a>8.2. Security Management</h3>
 <div class="paragraph">
 <p>With a resource adapter there are two different methods to authenticate with the SAP R/3 system: container managed and component managed authentication.
 Hibersap supports both authentication methods.</p>
@@ -1813,7 +1819,7 @@ Using a login module, the sign-on information is passed by the container to the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="jca-configuration"><a class="anchor" href="#jca-configuration"></a><a class="link" href="#jca-configuration">8.3. JCA Configuration</a></h3>
+<h3 id="jca-configuration"><a class="anchor" href="#jca-configuration"></a>8.3. JCA Configuration</h3>
 <div class="paragraph">
 <p>Another advantage of using a resource adapter over using JCo directly is that a resource adapter can be deployed and configured independently of the applications that use it.
 Thus it is not necessary to reconfigure and redeploy all applications that connect to a SAP system whenever connection parameters (e.g. the SAP system&#8217;s host name) change.
@@ -1822,7 +1828,7 @@ Since the configuration of the resource adapter specifies all the necessary prop
 </div>
 </div>
 <div class="sect2">
-<h3 id="hibersap-ejb-tools"><a class="anchor" href="#hibersap-ejb-tools"></a><a class="link" href="#hibersap-ejb-tools">8.4. Hibersap EJB tools</a></h3>
+<h3 id="hibersap-ejb-tools"><a class="anchor" href="#hibersap-ejb-tools"></a>8.4. Hibersap EJB tools</h3>
 <div class="paragraph">
 <p>If using Hibersap in a Java EE environment with Enterprise Java Beans, consider using the Hibersap EJB tools.
 The EJB tools help in automatically creating Hibersap Sessions, injecting them into your EJBs and closing them.</p>
@@ -1914,7 +1920,7 @@ To actually bind and unbind the session manager to and from JNDI, the helper met
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-10 10:40:29 CET
+Last updated 2017-03-10 10:43:13 CET
 </div>
 </div>
 <script type="text/x-mathjax-config">

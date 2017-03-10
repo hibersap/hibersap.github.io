@@ -70,19 +70,6 @@
 </div>
 <div class="row">
 <div class="large-12 columns">
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#step-by-step-example">Step by step example</a>
-<ul class="sectlevel2">
-<li><a href="#download-and-install-the-sap-java-connector">Download and install the SAP Java Connector</a></li>
-<li><a href="#create-a-maven-project-with-the-required-dependencies">Create a Maven project with the required dependencies</a></li>
-<li><a href="#implement-the-application">Implement the application</a></li>
-<li><a href="#run-the-application">Run the application</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="sect1">
 <h2 id="step-by-step-example"><a class="anchor" href="#step-by-step-example"></a>Step by step example</h2>
 <div class="sectionbody">
@@ -116,7 +103,7 @@ In the example we assume you use version 3.0.15, if not so, replace to version n
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion=3.0.15 \\&#x000A;                         -Dpackaging=jar -Dfile=/path/to/sapjco3.jar</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">mvn install:install-file -DgroupId=org.hibersap -DartifactId=com.sap.conn.jco.sapjco3 -Dversion=3.0.15 \\&#x000A;                         -Dpackaging=jar -Dfile=/path/to/sapjco3.jar</code></pre>
 </div>
 </div>
 </div>
@@ -127,7 +114,7 @@ In the example we assume you use version 3.0.15, if not so, replace to version n
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&#x000A;         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&#x000A;         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;&#x000A;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#x000A;    &lt;groupId&gt;com.mycompany&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;hibersap-example&lt;/artifactId&gt;&#x000A;    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;&#x000A;    &lt;dependencies&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-core&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.3.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-jco&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.3.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;sapjco3&lt;/artifactId&gt;&#x000A;            &lt;version&gt;3.0.15&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;    &lt;/dependencies&gt;&#x000A;&lt;/project&gt;</code></pre>
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&#x000A;         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&#x000A;         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;&#x000A;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#x000A;    &lt;groupId&gt;com.mycompany&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;hibersap-example&lt;/artifactId&gt;&#x000A;    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;&#x000A;    &lt;dependencies&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-core&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.3.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-jco&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.3.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;com.sap.conn.jco.sapjco3&lt;/artifactId&gt;&#x000A;            &lt;version&gt;3.0.15&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;    &lt;/dependencies&gt;&#x000A;&lt;/project&gt;</code></pre>
 </div>
 </div>
 </div>
