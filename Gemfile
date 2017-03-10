@@ -45,5 +45,5 @@ gem 'webrick', '~> 1.3.1'                                 # The rack webserver t
 ##gem 'uglifier', '>= 1.3.0'                              # If using the minify transformer
 ##gem 'htmlcompressor', '>= 0.0.3'                        # If using the minify transformer
 
-##gem 'zurb-foundation', '~> 4.3.2'
-# gem 'normalize', '~> 0.0.3'
+gem 'zurb-foundation', '~> 4.3.2'
+gem 'normalize', '~> 0.0.3'
