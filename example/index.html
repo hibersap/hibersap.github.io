@@ -5,17 +5,17 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Hibersap home</title>
-<link href="http://hibersap.github.io/stylesheets/app.css" rel="stylesheet">
-<script src="http://hibersap.github.io/javascripts/vendor/custom.modernizr.js"></script>
-<link href="http://hibersap.github.io/humans.txt" rel="author" type="text/plain">
+<link href="http://hibersap.org/stylesheets/app.css" rel="stylesheet">
+<script src="http://hibersap.org/javascripts/vendor/custom.modernizr.js"></script>
+<link href="http://hibersap.org/humans.txt" rel="author" type="text/plain">
 <!-- Fonts -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
 <!-- highlight.js -->
-<link href="http://hibersap.github.io/stylesheets/default.min.css" rel="stylesheet" type="text/css">
-<script src="http://hibersap.github.io/javascripts/vendor/highlight.min.js"></script>
+<link href="http://hibersap.org/stylesheets/default.min.css" rel="stylesheet" type="text/css">
+<script src="http://hibersap.org/javascripts/vendor/highlight.min.js"></script>
 <!-- font-awesome -->
-<link href="http://hibersap.github.io/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://hibersap.org/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body class="antialiased">
 <div class="sticky">
@@ -23,8 +23,8 @@
 <ul class="title-area">
 <li class="name">
 <h1>
-<a href="http://hibersap.github.io/">
-<img alt="Hibersap" src="http://hibersap.github.io/img/HibersapLogo.png">
+<a href="http://hibersap.org/">
+<img alt="Hibersap" src="http://hibersap.org/img/HibersapLogo.png">
 </a>
 </h1>
 </li>
@@ -36,32 +36,32 @@
 <ul class="right">
 <li class="divider">
 <li>
-<a href="http://hibersap.github.io/">Home</a>
+<a href="http://hibersap.org/">Home</a>
 </li>
 </li>
 <li class="divider">
 <li>
-<a href="http://hibersap.github.io/details">Details</a>
+<a href="http://hibersap.org/details">Details</a>
 </li>
 </li>
 <li class="divider">
 <li>
-<a href="http://hibersap.github.io/example">Example</a>
+<a href="http://hibersap.org/example">Example</a>
 </li>
 </li>
 <li class="divider">
 <li>
-<a href="http://hibersap.github.io/news">News</a>
+<a href="http://hibersap.org/news">News</a>
 </li>
 </li>
 <li class="divider">
 <li>
-<a href="http://hibersap.github.io/documentation">Get Help</a>
+<a href="http://hibersap.org/documentation">Get Help</a>
 </li>
 </li>
 <li class="divider">
 <li>
-<a href="http://hibersap.github.io/contribute">Contribute</a>
+<a href="http://hibersap.org/contribute">Contribute</a>
 </li>
 </li>
 </ul>
@@ -70,6 +70,19 @@
 </div>
 <div class="row">
 <div class="large-12 columns">
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#step-by-step-example">Step by step example</a>
+<ul class="sectlevel2">
+<li><a href="#download-and-install-the-sap-java-connector">Download and install the SAP Java Connector</a></li>
+<li><a href="#create-a-maven-project-with-the-required-dependencies">Create a Maven project with the required dependencies</a></li>
+<li><a href="#implement-the-application">Implement the application</a></li>
+<li><a href="#run-the-application">Run the application</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="sect1">
 <h2 id="step-by-step-example"><a class="anchor" href="#step-by-step-example"></a>Step by step example</h2>
 <div class="sectionbody">
@@ -99,11 +112,11 @@ Make sure to download the correct distribution for the OS/architecture combinati
 </div>
 <div class="paragraph">
 <p>Install the sapjco3 jar to your local Maven repository from the command line.
-In the example we assume you use version 3.0.12, if not so, replace to version number with the correct value:</p>
+In the example we assume you use version 3.0.15, if not so, replace to version number with the correct value:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion=3.0.12 \\&#x000A;                         -Dpackaging=jar -Dfile=/path/to/sapjco3.jar</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">mvn install:install-file -DgroupId=org.hibersap -DartifactId=sapjco3 -Dversion=3.0.15 \\&#x000A;                         -Dpackaging=jar -Dfile=/path/to/sapjco3.jar</code></pre>
 </div>
 </div>
 </div>
@@ -114,7 +127,7 @@ In the example we assume you use version 3.0.12, if not so, replace to version n
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&#x000A;         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&#x000A;         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;&#x000A;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#x000A;    &lt;groupId&gt;com.mycompany&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;hibersap-example&lt;/artifactId&gt;&#x000A;    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;&#x000A;    &lt;dependencies&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-core&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.2.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-jco&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.2.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;sapjco3&lt;/artifactId&gt;&#x000A;            &lt;version&gt;3.0.12&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;    &lt;/dependencies&gt;&#x000A;&lt;/project&gt;</code></pre>
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;project xmlns="http://maven.apache.org/POM/4.0.0"&#x000A;         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&#x000A;         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;&#x000A;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&#x000A;    &lt;groupId&gt;com.mycompany&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;hibersap-example&lt;/artifactId&gt;&#x000A;    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;&#x000A;    &lt;dependencies&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-core&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.3.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;hibersap-jco&lt;/artifactId&gt;&#x000A;            &lt;version&gt;1.3.0&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;        &lt;dependency&gt;&#x000A;            &lt;groupId&gt;org.hibersap&lt;/groupId&gt;&#x000A;            &lt;artifactId&gt;sapjco3&lt;/artifactId&gt;&#x000A;            &lt;version&gt;3.0.15&lt;/version&gt;&#x000A;        &lt;/dependency&gt;&#x000A;    &lt;/dependencies&gt;&#x000A;&lt;/project&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -238,9 +251,9 @@ interfaces and is not specific to this BAPI. This are the individual elements:</
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 28%;">
-<col style="width: 28%;">
-<col style="width: 42%;">
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 42.8572%;">
 </colgroup>
 <thead>
 <tr>
@@ -347,7 +360,7 @@ initializing the corresponding fields:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">public FlightListBapi(String fromCountryKey,&#x000A;                        String fromCity,&#x000A;                        String toCountryKey,&#x000A;                        String airlineCarrier,&#x000A;                        String toCity,&#x000A;                        boolean afternoon,&#x000A;                        int maxRead) {&#x000A;&#x000A;    this.fromCountryKey = fromCountryKey;&#x000A;    this.fromCity = fromCity;&#x000A;    this.toCountryKey = toCountryKey;&#x000A;    this.toCity = toCity;&#x000A;    this.airlineCarrier = airlineCarrier;&#x000A;    this.afternoon = afternoon;&#x000A;    this.maxRead = maxRead;&#x000A;}</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">public FlightListBapi(String fromCountryKey,&#x000A;                        String fromCity,&#x000A;                        String toCountryKey,&#x000A;                        String toCity,&#x000A;                        String airlineCarrier,&#x000A;                        boolean afternoon,&#x000A;                        int maxRead) {&#x000A;&#x000A;    this.fromCountryKey = fromCountryKey;&#x000A;    this.fromCity = fromCity;&#x000A;    this.toCountryKey = toCountryKey;&#x000A;    this.toCity = toCity;&#x000A;    this.airlineCarrier = airlineCarrier;&#x000A;    this.afternoon = afternoon;&#x000A;    this.maxRead = maxRead;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -410,7 +423,7 @@ The table FLIGHTLIST will be filled by SAP with the flight information matching 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">package org.hibersap.examples.flightlist;&#x000A;&#x000A;import java.util.Date;&#x000A;import org.hibersap.*;&#x000A;&#x000A;@BapiStructure&#x000A;public class Flight {&#x000A;&#x000A;    @Parameter("CARRID")&#x000A;    private String carrierId;&#x000A;&#x000A;    @Parameter("CONNID")&#x000A;    private String connectionId;&#x000A;&#x000A;    @Parameter("AIRPFROM")&#x000A;    private String airportFrom;&#x000A;&#x000A;    @Parameter("AIRPTO")&#x000A;    private String airportTo;&#x000A;&#x000A;    @Parameter("FLDATE")&#x000A;    private Date flightDate;&#x000A;&#x000A;    @Parameter("DEPTIME")&#x000A;    private Date departureTime;&#x000A;&#x000A;    @Parameter("SEATSMAX")&#x000A;    private int seatsMax;&#x000A;&#x000A;    @Parameter("SEATSOCC")&#x000A;    private int seatsOccupied;&#x000A;&#x000A;    public String getAirportFrom() { return this.airportFrom; }&#x000A;&#x000A;    public String getAirportTo() { return this.airportTo; }&#x000A;&#x000A;    public String getCarrierId() { return this.carrierId; }&#x000A;&#x000A;    public String getConnectionId() { return this.connectionId; }&#x000A;&#x000A;    public Date getDepartureTime() {&#x000A;      return DateUtil.joinDateAndTime( flightDate, departureTime );&#x000A;    }&#x000A;&#x000A;    public Date getFlightDate() { return flightDate; }&#x000A;&#x000A;    public int getSeatsMax() { return this.seatsMax; }&#x000A;&#x000A;    public int getSeatsOccupied() { return this.seatsOccupied; }&#x000A;}</code></pre>
+<pre class="highlight nowrap"><code class="language-java" data-lang="java">package org.hibersap.examples.flightlist;&#x000A;&#x000A;import java.util.Date;&#x000A;import org.hibersap.*;&#x000A;&#x000A;@BapiStructure&#x000A;public class Flight {&#x000A;&#x000A;    @Parameter("CARRID")&#x000A;    private String carrierId;&#x000A;&#x000A;    @Parameter("CONNID")&#x000A;    private String connectionId;&#x000A;&#x000A;    @Parameter("AIRPFROM")&#x000A;    private String airportFrom;&#x000A;&#x000A;    @Parameter("AIRPTO")&#x000A;    private String airportTo;&#x000A;&#x000A;    @Parameter("FLDATE")&#x000A;    private Date flightDate;&#x000A;&#x000A;    @Parameter("DEPTIME")&#x000A;    private Date departureTime;&#x000A;&#x000A;    @Parameter("SEATSMAX")&#x000A;    private int seatsMax;&#x000A;&#x000A;    @Parameter("SEATSOCC")&#x000A;    private int seatsOccupied;&#x000A;&#x000A;    public String getAirportFrom() { return this.airportFrom; }&#x000A;&#x000A;    public String getAirportTo() { return this.airportTo; }&#x000A;&#x000A;    public String getCarrierId() { return this.carrierId; }&#x000A;&#x000A;    public String getConnectionId() { return this.connectionId; }&#x000A;&#x000A;    public Date getDepartureTime() {&#x000A;      return DateUtil.joinDateAndTime( flightDate, departureTime );&#x000A;    }&#x000A;&#x000A;    public Date getFlightDate() { return flightDate; }&#x000A;&#x000A;    public int getSeatsMax() { return this.seatsMax; }&#x000A;&#x000A;    public int getSeatsOccupied() { return this.seatsOccupied; }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -440,7 +453,7 @@ This means, you need to adopt the values to your specific SAP system and user ac
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;hibersap xmlns="urn:hibersap:hibersap-configuration:1.0"&gt;&#x000A;  &lt;session-manager name="A12"&gt;&#x000A;    &lt;properties&gt;&#x000A;      &lt;property name="jco.client.client" value="800" /&gt;&#x000A;      &lt;property name="jco.client.user" value="sapuser" /&gt;&#x000A;      &lt;property name="jco.client.passwd" value="password" /&gt;&#x000A;      &lt;property name="jco.client.lang" value="en" /&gt;&#x000A;      &lt;property name="jco.client.ashost" value="10.20.30.40" /&gt;&#x000A;      &lt;property name="jco.client.sysnr" value="00" /&gt;&#x000A;      &lt;property name="jco.destination.pool_capacity" value="5" /&gt;&#x000A;    &lt;/properties&gt;&#x000A;    &lt;annotatedClasses&gt;&#x000A;      &lt;class&gt;org.hibersap.examples.flightlist.FlightListBapi&lt;/class&gt;&#x000A;    &lt;/annotatedClasses&gt;&#x000A;  &lt;/session-manager&gt;&#x000A;&lt;/hibersap&gt;</code></pre>
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#x000A;&lt;hibersap xmlns="urn:hibersap:hibersap-configuration:1.1"&gt;&#x000A;  &lt;session-manager name="A12"&gt;&#x000A;    &lt;properties&gt;&#x000A;      &lt;property name="jco.client.client" value="800" /&gt;&#x000A;      &lt;property name="jco.client.user" value="sapuser" /&gt;&#x000A;      &lt;property name="jco.client.passwd" value="password" /&gt;&#x000A;      &lt;property name="jco.client.lang" value="en" /&gt;&#x000A;      &lt;property name="jco.client.ashost" value="10.20.30.40" /&gt;&#x000A;      &lt;property name="jco.client.sysnr" value="00" /&gt;&#x000A;      &lt;property name="jco.destination.pool_capacity" value="5" /&gt;&#x000A;    &lt;/properties&gt;&#x000A;    &lt;annotated-classes&gt;&#x000A;      &lt;annotated-class&gt;org.hibersap.examples.flightlist.FlightListBapi&lt;/annotated-class&gt;&#x000A;    &lt;/annotated-classes&gt;&#x000A;  &lt;/session-manager&gt;&#x000A;&lt;/hibersap&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -546,7 +559,7 @@ including a Java EE application using Hibersap with the <a href="https://sourcef
 <div class="large-12 columns">
 <div class="text-center">
 <div>
-Copyright &copy; 2008-2015,
+Copyright &copy; 2008-2017,
 <a href="http://akquinet.de">
 akquinet AG
 </a>
@@ -582,10 +595,10 @@ Forums
 </div>
 </footer>
 <script>
-document.write('<script src=' + ('__proto__' in {} ? 'http://hibersap.github.io/javascripts/vendor/zepto' : 'http://hibersap.github.io/javascripts/vendor/jquery') + '.js><\/script>')
+document.write('<script src=' + ('__proto__' in {} ? 'http://hibersap.org/javascripts/vendor/zepto' : 'http://hibersap.org/javascripts/vendor/jquery') + '.js><\/script>')
 </script>
-<script src="http://hibersap.github.io/javascripts/foundation/foundation.js"></script>
-<script src="http://hibersap.github.io/javascripts/foundation/foundation.topbar.js"></script>
+<script src="http://hibersap.org/javascripts/foundation/foundation.js"></script>
+<script src="http://hibersap.org/javascripts/foundation/foundation.topbar.js"></script>
 <script>
 $(document).foundation()
 </script>
