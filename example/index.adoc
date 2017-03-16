@@ -289,16 +289,6 @@ public boolean getAfternoon() {
 // ...
 ----
 
-[NOTE]
-====
-There is one constraint in the current version of Hibersap you should take into account: The mapping
-between SAP parameters and Java classes works as expected only if the SAP function module complies to the BAPI standard.
-As of now, this means:
-
-Deep tables (i. e. tables in tables or tables in structures) are not supported.
-
-Changing parameters can not be mapped.
-====
 
 ==== Implement structure classes for complex parameters
 
