@@ -1,0 +1,26 @@
+= Hibersap 1.4.0 released
+Carsten Erker
+2019-10-29
+
+We are happy to announce the Hibersap 1.4.0 release!
+
+The artifacts for the new Hibersap version can be found in Maven central.
+
+Hibersap now supports changing parameters and allows the hibersap.xml file to be in a different location.
+
+pass::[more]
+
+Here are the changes for Hibersap 1.4.0:
+
+*Enhancement*
+
+[link:https://github.com/hibersap/hibersap/issues/9[9]] - Add the possibility to change the classpath location for hibersap.xml (thanks to link:https://github.com/Linuem[Linuem])
+
+[link:https://github.com/hibersap/hibersap/issues/29[29]] - Fixes an issue with the SAP Resource Adapter and Hibersap JCA  (thanks to link:https://sourceforge.net/u/bimukher/profile[Bigyan Mukherjee])
+
+[link:https://github.com/hibersap/hibersap/issues/30[30]] - Support Changing Parameters
+
+
+For details see the link:https://github.com/hibersap/hibersap/issues?q=milestone%3Av1.3.0+[Hibersap issue tracker]
+
+
