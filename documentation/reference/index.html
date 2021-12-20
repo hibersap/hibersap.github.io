@@ -719,9 +719,9 @@ The following sections show Hibersap&#8217;s runtime dependencies and their vers
 <div class="paragraph">
 <p>The SAP JCo library is provided by SAP to their customers and comes with its own (commercial) license.
 Thus it can not be provided by public Maven repositories or download sites.
-Please check the following URL for more information and downloads: <a href="http://service.sap.com/connectors" class="bare">http://service.sap.com/connectors</a>.
+Please check the following URL for more information and downloads: <a href="https://service.sap.com/connectors" class="bare">https://service.sap.com/connectors</a>.
 You need to have an account for this URL, which may be obtained by SAP customers.
-Valuable help regarding SAP technologies can also be found on the SAP Community Network (SCN): <a href="http://scn.sap.com" class="bare">http://scn.sap.com</a>.</p>
+Valuable help regarding SAP technologies can also be found on the SAP Community Network (SCN): <a href="https://scn.sap.com" class="bare">https://scn.sap.com</a>.</p>
 </div>
 <div class="paragraph">
 <p>After downloading SAP Java Connector 3.0, extract the sapjco3.jar and the sapjco3 native library.
@@ -783,7 +783,7 @@ The project&#8217;s web site can be found under <a href="https://sourceforge.net
 <div class="sect2">
 <h3 id="other-jca-compatible-resource-adapters"><a class="anchor" href="#other-jca-compatible-resource-adapters"></a>2.4. Other JCA compatible Resource Adapters</h3>
 <div class="paragraph">
-<p>Being the only open source resource adapters for SAP, Hibersap was tested with Cuckoo as well as the SAP BAPI JCA Adapter (see <a href="http://sourceforge.net/projects/sapbapijcaadapt" class="bare">http://sourceforge.net/projects/sapbapijcaadapt</a>).
+<p>Being the only open source resource adapters for SAP, Hibersap was tested with Cuckoo as well as the SAP BAPI JCA Adapter (see <a href="https://sourceforge.net/projects/sapbapijcaadapt" class="bare">https://sourceforge.net/projects/sapbapijcaadapt</a>).
 Nevertheless, commercial alternatives do exist. We would be glad to get your feedback when using one of these.
 Note that a resource adapter must implement the JCA Common Client Interface (CCI) to be supported by Hibersap.</p>
 </div>
@@ -896,7 +896,7 @@ Note that you may use the Hibersap XML schema definition as shown in the hibersa
 <span class="tag">&lt;hibersap</span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
           <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://hibersap.org/xml/ns/hibersap-config</span><span class="delimiter">&quot;</span></span>
           <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://hibersap.org/xml/ns/hibersap-config</span>
-                              <span class="content">http://hibersap.sourceforge.net/xml/hibersap_1_1.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                              <span class="content">https://hibersap.sourceforge.net/xml/hibersap_1_1.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;session-manager</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">A12</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;context&gt;</span>org.hibersap.execution.jco.JCoContext<span class="tag">&lt;/context&gt;</span>
     <span class="tag">&lt;properties&gt;</span>
@@ -1056,7 +1056,7 @@ This section provides detailed information on the Hibersap annotations and on ho
 <div class="paragraph">
 <p>Since Hibersap maps SAP Remote Function Modules to plain Java classes, an application must define one class for each function module that acts as a kind of proxy.
 This class is called a BAPI class and has to be annotated with the <code>@Bapi</code> annotation.
-(a <a href="http://en.wikipedia.org/wiki/Business_Application_Programming_Interface">BAPI</a>, Business Application Programming Interface, is actually a subset of all Remote Function Modules in a SAP ERP system but provides a more handy term).
+(a <a href="https://en.wikipedia.org/wiki/Business_Application_Programming_Interface">BAPI</a>, Business Application Programming Interface, is actually a subset of all Remote Function Modules in a SAP ERP system but provides a more handy term).
 The annotation&#8217;s <code>value</code> property defines the name of the corresponding function module:</p>
 </div>
 <div class="listingblock">
